@@ -147,7 +147,7 @@ export default function HomePage() {
           </section>
           <section>
             <div className="w-full flex justify-center items-center">
-              <ButtonComponent Text="Show More.."></ButtonComponent>
+              <ButtonComponent Text="Show More.." LinkURL="/property" />
             </div>
           </section>
           <section id="Banners">
