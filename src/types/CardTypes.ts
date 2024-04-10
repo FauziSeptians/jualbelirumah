@@ -2,6 +2,7 @@ export type CardTypes = {
   Images: string;
   Title: string;
   Location: string;
+  Clicked?: boolean;
 };
 
 export type CardPopularTypes = {

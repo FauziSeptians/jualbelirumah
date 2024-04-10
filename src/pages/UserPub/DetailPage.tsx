@@ -1,9 +1,14 @@
+import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import ButtonComponent from "../../components/ButtonComponent";
 import { modalImageStore } from "../../store/modalImagesStore";
 import { toRupiah } from "../../utils/toRupiah";
 
-export default function DetailPage() {
+export default function DetailPage({
+  ClickedProperty,
+}: {
+  ClickedProperty?: boolean;
+}) {
   const [, setOpenModalImage] = useAtom(modalImageStore);
 
   const OpenModalImage = (stringImages: string) => {
@@ -13,8 +18,18 @@ export default function DetailPage() {
   const ENDPOINTWA = import.meta.env.VITE_WHATSAPP_ENDPOINT;
 
   return (
-    <section className="flex flex-col w-full  gap-10 p-5">
-      <section id="header" className="flex justify-between items-center">
+    <section
+      className={`flex flex-col w-full  gap-10 p-5 ${
+        ClickedProperty ? "h-[820px] overflow-y-scroll" : null
+      }`}
+    >
+      <motion.section
+        id="header"
+        className="flex justify-between items-center"
+        animate={{ y: "0px", opacity: 1 }}
+        initial={{ y: "100px", opacity: 0 }}
+        transition={{ delay: 0.1 }}
+      >
         <div>
           <div className="text-[32px] font-semibold">
             Rumah dijual di jawa barat
@@ -26,8 +41,14 @@ export default function DetailPage() {
         <div className="text-[24px] font-semibold">
           {toRupiah("5000000000")}
         </div>
-      </section>
-      <section id="Gambar" className="flex w-full gap-4 h-[450px]">
+      </motion.section>
+      <motion.section
+        id="Gambar"
+        className="flex w-full gap-4 h-[450px]"
+        animate={{ y: "0px", opacity: 1 }}
+        initial={{ y: "100px", opacity: 0 }}
+        transition={{ delay: 0.2 }}
+      >
         <div className="w-[90%] ">
           <div
             className="w-full h-full rounded-[5px] bg-slate-400 cursor-pointer"
@@ -72,9 +93,21 @@ export default function DetailPage() {
             ></img>
           </div>
         </div>
-      </section>
-      <section id="Description" className="w-full flex gap-4">
-        <div className="w-[75%]  flex flex-col gap-10">
+      </motion.section>
+      <motion.section
+        id="Description"
+        className={`w-full ${
+          ClickedProperty ? "flex flex-col gap-6" : "flex"
+        } gap-4`}
+        animate={{ x: "0px", opacity: 1 }}
+        initial={{ x: "100px", opacity: 0 }}
+        transition={{ delay: 0.3 }}
+      >
+        <div
+          className={`${
+            ClickedProperty ? "w-full" : "w-[75%]"
+          }  flex flex-col gap-10 `}
+        >
           <div id="Overview" className="flex flex-col gap-3">
             <div className="text-[20px] font-semibold">Overview</div>
             <div className="text-[16px] font-regular opacity-[0.6] text-justify">
@@ -125,7 +158,8 @@ export default function DetailPage() {
                   </div>
                 </div>
               </div>
-              <div className="w-[70%] flex flex-col gap-6">
+
+              <div className={`w-[70%] flex flex-col gap-6`}>
                 <div className="flex gap-3">
                   <div className="relative w-[50px] h-[50px] bg-white rounded-[25px]">
                     <img
@@ -189,7 +223,7 @@ export default function DetailPage() {
             </div>
           </div>
         </div>
-        <div className="w-[25%] p-3">
+        <div className={`${ClickedProperty ? "w-full" : "w-[25%] p-3"} `}>
           <div className="border-2 p-6 flex flex-col gap-3 rounded-[25px]">
             <div className=" w-full flex gap-3 items-center">
               <div className="relative w-[50px] h-[50px] bg-white rounded-[25px]">
@@ -234,7 +268,7 @@ export default function DetailPage() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
     </section>
   );
 }

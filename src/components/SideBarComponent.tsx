@@ -3,8 +3,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { SectionMenu } from "../data/constant/NavbarMenu";
 
-export default function SideBarComponent() {
-  const [HoverKey, setHoverKey] = useState("Home");
+export default function SideBarComponent({ Path }: { Path: string }) {
+  const [HoverKey, setHoverKey] = useState(Path);
+
+  console.log(HoverKey);
+
   return (
     <div className="">
       <div className="flex flex-col gap-6 mr-[20px]">
@@ -15,7 +18,7 @@ export default function SideBarComponent() {
                 key={item.Title}
                 className="cursor-pointer flex gap-2  py-2 items-center "
                 onMouseEnter={() => setHoverKey(item.Title)}
-                onMouseLeave={() => setHoverKey("Home")}
+                onMouseLeave={() => setHoverKey(Path)}
               >
                 <div className="relative w-[80px] h-[50px]">
                   <motion.div
@@ -36,7 +39,7 @@ export default function SideBarComponent() {
               key={item.Title}
               className="cursor-pointer flex gap-2 py-2 items-center"
               onMouseEnter={() => setHoverKey(item.Title)}
-              onMouseLeave={() => setHoverKey("Home")}
+              onMouseLeave={() => setHoverKey(Path)}
             >
               <div className="relative w-[80px] h-[50px] ">
                 {/* <div className="absolute px-[20px] bg-green-200 rounded-r-[100px] w-full h-full  py-3"></div> */}

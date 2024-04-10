@@ -1,6 +1,21 @@
+import { useAtom } from "jotai";
+import { KeyboardEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { TitleMenu } from "../data/constant/NavbarMenu";
+import { searchValue } from "../store/searchValueStore";
 
 export default function NavbarComponent() {
+  const [searchVal, setSearchVal] = useState("");
+  const [, setSearchValAtom] = useAtom(searchValue);
+  const navigate = useNavigate();
+  function handleSearchSubmit(event: KeyboardEvent<HTMLInputElement>) {
+    if (event.key === "Enter") {
+      // Call the SearchSubmit function when the Enter key is pressed
+      setSearchValAtom(searchVal);
+      navigate("/property?search=" + searchVal);
+    }
+  }
+
   return (
     <div className=" w-full h-[90px] z-[1000]">
       <div className="w-full h-full    flex items-center ">
@@ -13,6 +28,9 @@ export default function NavbarComponent() {
             type="text"
             className="py-1 px-4 w-[700px] rounded-r-[100px] border border-x border-r border-[#00000016] bg-[#f1f3f9]"
             placeholder="Search your dream house"
+            name="search"
+            onChange={(e) => setSearchVal(e.target.value)}
+            onKeyDown={handleSearchSubmit}
           />
         </div>
       </div>
