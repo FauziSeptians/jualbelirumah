@@ -3,6 +3,7 @@ import Layout from "../components/layout/Layout";
 import AdminHomePage from "../pages/Admin/AdminHomePage";
 import DetailPage from "../pages/UserPub/DetailPage";
 import HomePage from "../pages/UserPub/HomePage";
+import PropertyPage from "../pages/UserPub/PropertyPage";
 import NotFoundPages from "../pages/error/NotFoundPages";
 
 export default function PublicRoutes() {
@@ -24,6 +25,22 @@ export default function PublicRoutes() {
             element={
               <Layout>
                 <DetailPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/property"
+            element={
+              <Layout>
+                <PropertyPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/property/:search"
+            element={
+              <Layout>
+                <PropertyPage />
               </Layout>
             }
           />
