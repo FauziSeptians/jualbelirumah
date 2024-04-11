@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { KeyboardEvent, useState } from "react";
+import { KeyboardEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TitleMenu } from "../data/constant/NavbarMenu";
 import { searchValue } from "../store/searchValueStore";
@@ -16,6 +16,15 @@ export default function NavbarComponent() {
     }
   }
 
+  useEffect(() => {
+    const storedData = localStorage.getItem("searchVal");
+    if (storedData) {
+      setSearchVal(JSON.parse(storedData));
+    }
+  }, []);
+
+  console.log(searchVal);
+
   return (
     <div className=" w-full h-[90px] z-[1000]">
       <div className="w-full h-full    flex items-center ">
@@ -31,6 +40,7 @@ export default function NavbarComponent() {
             name="search"
             onChange={(e) => setSearchVal(e.target.value)}
             onKeyDown={handleSearchSubmit}
+            value={searchVal ? searchVal : ""}
           />
         </div>
       </div>

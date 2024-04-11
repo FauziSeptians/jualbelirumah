@@ -1,10 +1,16 @@
+import { Spinner } from "@nextui-org/react";
+import { Suspense, lazy } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Layout from "../components/layout/Layout";
-import AdminHomePage from "../pages/Admin/AdminHomePage";
-import DetailPage from "../pages/UserPub/DetailPage";
-import HomePage from "../pages/UserPub/HomePage";
-import PropertyPage from "../pages/UserPub/PropertyPage";
-import NotFoundPages from "../pages/error/NotFoundPages";
+import ErrorsPages from "../pages/error/ErrorsPages";
+
+const HomePage = lazy(() => import("../pages/UserPub/HomePage"));
+const DetailPage = lazy(() => import("../pages/UserPub/DetailPage"));
+const AdminHomePage = lazy(() => import("../pages/Admin/AdminHomePage"));
+const PropertyPage = lazy(() => import("../pages/UserPub/PropertyPage"));
+const AboutUsPage = lazy(() => import("../pages/UserPub/AboutUsPage"));
+const NotFoundPages = lazy(() => import("../pages/error/NotFoundPages"));
+const Layout = lazy(() => import("../components/layout/Layout"));
 
 export default function PublicRoutes() {
   return (
@@ -14,34 +20,84 @@ export default function PublicRoutes() {
           <Route
             index
             element={
-              <Layout>
-                <HomePage />
-              </Layout>
+              <Suspense
+                fallback={
+                  <div className="fixed w-full h-screen bg-[white] z-[1000] flex justify-center items- text-white">
+                    <Spinner color="primary" className="text-white" />
+                  </div>
+                }
+              >
+                <ErrorBoundary FallbackComponent={() => ErrorsPages()}>
+                  <Layout>
+                    <HomePage />
+                  </Layout>
+                </ErrorBoundary>
+              </Suspense>
             }
           />
           <Route path="/admin" element={<AdminHomePage />} />
           <Route
             path="/detail/:id"
             element={
-              <Layout>
-                <DetailPage />
-              </Layout>
+              <Suspense
+                fallback={
+                  <div className="fixed w-full h-screen bg-[white] z-[1000] flex justify-center items- text-white">
+                    <Spinner color="primary" className="text-white" />
+                  </div>
+                }
+              >
+                <Layout>
+                  <DetailPage />
+                </Layout>
+              </Suspense>
             }
           />
           <Route
             path="/property"
             element={
-              <Layout>
-                <PropertyPage />
-              </Layout>
+              <Suspense
+                fallback={
+                  <div className="fixed w-full h-screen bg-[white] z-[1000] flex justify-center items- text-white">
+                    <Spinner color="primary" className="text-white" />
+                  </div>
+                }
+              >
+                <Layout>
+                  <PropertyPage />
+                </Layout>
+              </Suspense>
             }
           />
           <Route
             path="/property/:search"
             element={
-              <Layout>
-                <PropertyPage />
-              </Layout>
+              <Suspense
+                fallback={
+                  <div className="fixed w-full h-screen bg-[white] z-[1000] flex justify-center items- text-white">
+                    <Spinner color="primary" className="text-white" />
+                  </div>
+                }
+              >
+                <Layout>
+                  <PropertyPage />
+                </Layout>
+              </Suspense>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <Suspense
+                fallback={
+                  <div className="fixed w-full h-screen bg-[white] z-[1000] flex justify-center items- text-white">
+                    <Spinner color="primary" className="text-white" />
+                  </div>
+                }
+              >
+                <Layout>
+                  <AboutUsPage />
+                </Layout>
+              </Suspense>
             }
           />
           <Route path="*" element={<NotFoundPages />} />

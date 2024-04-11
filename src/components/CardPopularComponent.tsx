@@ -38,7 +38,7 @@ export default function CardPopularComponent({
             {toRupiah(Harga.toString())}
           </div>
 
-          <ButtonComponent Text="Contact" />
+          <ButtonComponent Text="Contact" LinkURL="" />
         </div>
       </div>
     </Link>

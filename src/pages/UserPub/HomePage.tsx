@@ -13,6 +13,8 @@ export default function HomePage() {
   const [selectedFilterPrice1, setFilterPrice1] = useState(Filterprice[0]);
   const [selectedFilterPrice2, setFilterPrice2] = useState(Filterprice[0]);
 
+  // console.log(wadwaw);
+
   return (
     <>
       <section className="flex ">
