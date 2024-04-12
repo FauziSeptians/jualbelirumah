@@ -2,6 +2,7 @@ import { Spinner } from "@nextui-org/react";
 import { Suspense, lazy } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ContactUsPage from "../pages/UserPub/ContactUsPage";
 import ErrorsPages from "../pages/error/ErrorsPages";
 
 const HomePage = lazy(() => import("../pages/UserPub/HomePage"));
@@ -103,6 +104,24 @@ export default function PublicRoutes() {
                 <ErrorBoundary FallbackComponent={() => ErrorsPages()}>
                   <Layout>
                     <AboutUsPage />
+                  </Layout>
+                </ErrorBoundary>
+              </Suspense>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <Suspense
+                fallback={
+                  <div className="fixed w-full h-screen bg-[white] z-[1000] flex justify-center items- text-white">
+                    <Spinner color="primary" className="text-white" />
+                  </div>
+                }
+              >
+                <ErrorBoundary FallbackComponent={() => ErrorsPages()}>
+                  <Layout>
+                    <ContactUsPage />
                   </Layout>
                 </ErrorBoundary>
               </Suspense>
