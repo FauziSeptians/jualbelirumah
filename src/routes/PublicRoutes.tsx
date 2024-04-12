@@ -46,9 +46,11 @@ export default function PublicRoutes() {
                   </div>
                 }
               >
-                <Layout>
-                  <DetailPage />
-                </Layout>
+                <ErrorBoundary FallbackComponent={() => ErrorsPages()}>
+                  <Layout>
+                    <DetailPage />
+                  </Layout>
+                </ErrorBoundary>
               </Suspense>
             }
           />
@@ -62,9 +64,11 @@ export default function PublicRoutes() {
                   </div>
                 }
               >
-                <Layout>
-                  <PropertyPage />
-                </Layout>
+                <ErrorBoundary FallbackComponent={() => ErrorsPages()}>
+                  <Layout>
+                    <PropertyPage />
+                  </Layout>
+                </ErrorBoundary>
               </Suspense>
             }
           />
@@ -78,9 +82,11 @@ export default function PublicRoutes() {
                   </div>
                 }
               >
-                <Layout>
-                  <PropertyPage />
-                </Layout>
+                <ErrorBoundary FallbackComponent={() => ErrorsPages()}>
+                  <Layout>
+                    <PropertyPage />
+                  </Layout>
+                </ErrorBoundary>
               </Suspense>
             }
           />
@@ -94,9 +100,11 @@ export default function PublicRoutes() {
                   </div>
                 }
               >
-                <Layout>
-                  <AboutUsPage />
-                </Layout>
+                <ErrorBoundary FallbackComponent={() => ErrorsPages()}>
+                  <Layout>
+                    <AboutUsPage />
+                  </Layout>
+                </ErrorBoundary>
               </Suspense>
             }
           />

@@ -1,19 +1,20 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { CardTypes } from "../types/CardTypes";
+import { dataPerumahan } from "../types/CardTypes";
 
 export default function CardComponent({
-  Images,
-  Title,
-  Location,
+  data,
   Clicked,
-}: CardTypes) {
+}: {
+  data: dataPerumahan;
+  Clicked?: boolean;
+}) {
   const [HoveredImages, setHoveredImages] = useState(false);
   return (
     <>
       {!Clicked ? (
-        <Link to={`/detail/${Title}`}>
+        <Link to={`/detail/${data.Id}`}>
           <div
             className="w-[350px] cursor-pointer"
             onMouseOver={() => setHoveredImages(true)}
@@ -21,7 +22,7 @@ export default function CardComponent({
           >
             <div className="h-[400px] relative">
               <img
-                src={Images}
+                src={data.Images.Thumbnail}
                 className="w-full h-full object-cover rounded-[25px] shadow-lg bg-gray-500 "
               ></img>
 
@@ -44,13 +45,13 @@ export default function CardComponent({
                       <div className="">
                         <img src="/bathroom.png" width={30}></img>
                       </div>
-                      <div>3</div>
+                      <div>{data.Details.Bathroom}</div>
                     </motion.div>
                     <motion.div className="flex gap-3 items-center">
                       <div className="">
                         <img src="/bedroom.png" width={30}></img>
                       </div>
-                      <div>3</div>
+                      <div>{data.Details.Bedroom}</div>
                     </motion.div>
                   </motion.div>
                 )}
@@ -65,26 +66,26 @@ export default function CardComponent({
                       <div className="">
                         <img src="/area-graph.png" width={30}></img>
                       </div>
-                      <div>300</div>
+                      <div>{data.Details.AreaSurface}</div>
                     </motion.div>
                     <motion.div className="flex gap-3 items-center">
                       <div className="">
                         <img src="/house.png" width={30}></img>
                       </div>
-                      <div>500</div>
+                      <div>{data.Details.AreaBuilding}</div>
                     </motion.div>
                   </motion.div>
                 )}
               </div>
             </div>
             <div className="mt-3">
-              <div className="text-[18px]">{Title}</div>
+              <div className="text-[18px]">{data.Title}</div>
               <div className="flex flex-col gap-6 text-[16px] opacity-[0.6] ">
                 <div className="flex gap-3 ">
                   <div>
                     <img src="/placeholder.png" width={22}></img>
                   </div>
-                  <div>{Location}</div>
+                  <div>{data.Location}</div>
                 </div>
               </div>
             </div>
@@ -99,7 +100,7 @@ export default function CardComponent({
           <div className="h-[400px] relative">
             <div className="w-full h-full object-cover rounded-[25px] shadow-lg bg-gray-500 ">
               <img
-                src={Images}
+                src={data.Images.Thumbnail}
                 className="w-full h-full object-cover rounded-[25px] shadow-lg bg-gray-500 "
               ></img>
             </div>
@@ -156,13 +157,13 @@ export default function CardComponent({
             </div>
           </div>
           <div className="mt-3">
-            <div className="text-[18px]">{Title}</div>
+            <div className="text-[18px]">{data.Title}</div>
             <div className="flex flex-col gap-6 text-[16px] opacity-[0.6] ">
               <div className="flex gap-3 ">
                 <div>
                   <img src="/placeholder.png" width={22}></img>
                 </div>
-                <div>{Location}</div>
+                <div>{data.Location}</div>
               </div>
             </div>
           </div>

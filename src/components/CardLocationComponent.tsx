@@ -15,12 +15,12 @@ export default function CardLocationComponent({
   return (
     <Link to={`/detail/${Title}`}>
       <div
-        className="relative cursor-pointer"
+        className="relative cursor-pointer md:w-full w-[400px]"
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       >
         <div className="">
-          <img className="w-[400px] rounded-lg" src={Images}></img>
+          <img className="w-[350px] rounded-lg" src={Images}></img>
         </div>
         {Hover && (
           <motion.div
