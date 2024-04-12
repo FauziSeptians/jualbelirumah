@@ -2,15 +2,19 @@ export default function AboutUsPage() {
   return (
     <div className="w-full h-[820px] overflow-x-auto  flex flex-col gap-10">
       <div className="text-[24px] font-semibold">About Us Pages</div>
-      <section className="w-full h-[900px]  p-10 flex justify-center items-center bg-[#ffd34e]">
-        <div className="w-[30%] h-full flex justify-center items-center">
-          <img src="/logo.png" width={400}></img>
+      <section className="w-full md:h-[900px] h-fit  md:p-10 p-5 flex md:flex-row flex-col md:gap-0 gap-6 justify-center items-center bg-[#ffd34e]">
+        <div className="md:w-[30%] h-full flex justify-center items-center ">
+          <img
+            src="/logo.png"
+            width={400}
+            className="md:w-[400px] w-[500px]"
+          ></img>
         </div>
-        <div className="w-[70%] h-full flex justify-center items-center">
+        <div className="md:w-[70%] w-full h-full flex md:justify-center items-center">
           <div className="flex flex-col gap-6">
             <div className="text-[20px] font-semibold">TPROPERTY</div>
-            <div className="w-[700px] text-justify flex flex-col gap-6">
-              <div>
+            <div className="md:w-[700px] w-full text-justify flex flex-col gap-6">
+              <div className="">
                 Prestasi Property adalah perusahaan agen properti yang
                 berkomitmen untuk menyediakan solusi properti terbaik bagi klien
                 kami. Dengan tim yang berpengalaman dan berdedikasi, kami telah
@@ -42,8 +46,8 @@ export default function AboutUsPage() {
       <section id="our-services">
         <div className="w-full h-[200px] flex flex-col gap-6 justify-center items-center ">
           <div className="text-[24px] font-semibold">Our Services</div>
-          <div className="text-[30px] font-bold ">
-            Bagaimana Tproperty membantu anda dalam mencari rumah impian
+          <div className="text-[30px] font-bold w-full text-center">
+            Layanan yang kami berikan kepada anda
           </div>
           <div className="flex gap-6">
             <div>bla bla</div>
@@ -55,12 +59,12 @@ export default function AboutUsPage() {
       </section>
       <section id="our-services bg-red-200 " className="bg-[#ffd34e] p-5">
         <div className="w-full h-fit flex flex-col gap-6 justify-center items-center   ">
-          <div className="text-[24px] font-semibold">Our Services</div>
-          <div className="text-[30px] font-bold ">
-            Bagaimana Tproperty membantu anda dalam mencari rumah impian
+          <div className="text-[24px] font-semibold">Visi & Misi</div>
+          <div className="text-[30px] font-bold w-full text-center">
+            Visi & Misi perusahaan kami
           </div>
-          <div className="flex w-full  gap-6  mx-5 text-justify">
-            <div className="w-[50%] p-10">
+          <div className="flex md:flex-row flex-col w-full  gap-6  md:mx-5 text-justify">
+            <div className="md:w-[50%] w-full md:p-10">
               <div className="text-[20px] font-semibold">Visi</div>
               <div>
                 Menjadi agen properti terkemuka yang memberikan layanan terbaik,
@@ -68,7 +72,7 @@ export default function AboutUsPage() {
                 mitra terpercaya dalam memenuhi kebutuhan properti mereka.
               </div>
             </div>
-            <div className="w-[50%] p-10">
+            <div className="md:w-[50%] w-full md:p-10">
               <div className="text-[20px] font-semibold">Misi</div>
 
               <div>
@@ -92,10 +96,10 @@ export default function AboutUsPage() {
       <section id="our-services">
         <div className="w-full  flex flex-col gap-6 justify-center items-center ">
           <div className="text-[24px] font-semibold">Property Gallery</div>
-          <div className="text-[30px] font-bold ">
+          <div className="text-[30px] font-bold w-full text-center">
             Property terbaik yang dijual oleh agent kami
           </div>
-          <div className=" grid grid-cols-4 gap-6">
+          <div className="md:grid md:grid-cols-4 flex flex-col gap-6">
             {Array(8)
               .fill([])
               .map((item) => {

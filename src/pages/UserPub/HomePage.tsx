@@ -6,6 +6,7 @@ import CardPopularComponent from "../../components/CardPopularComponent";
 import MiniCardPopularComponent from "../../components/MiniCardPopularComponent";
 import SectionMenuComponent from "../../components/SectionMenuComponent";
 import { Filterprice, sectionMenu } from "../../data/constant/SectionMenu";
+import { dataPerumahan } from "../../data/dummy/dataPerumahanDummy";
 
 export default function HomePage() {
   const [selectedsectionMenus, setSectionMenu] = useState(sectionMenu[0]);
@@ -19,7 +20,7 @@ export default function HomePage() {
     <>
       <section className="flex ">
         <section
-          className="flex flex-col gap-[50px] w-[68%] h-[820px] overflow-y-scroll px-5 "
+          className="flex flex-col gap-[50px] md:w-[68%] w-full h-[820px] overflow-y-scroll md:px-5 px-0 "
           id="scroll"
         >
           <section id="section-recomandation" className="flex flex-col gap-6">
@@ -47,8 +48,8 @@ export default function HomePage() {
                 )}
               </div>
             </div>
-            <div className="flex justify-between">
-              <CardComponent
+            <div className="flex md:flex-row flex-col gap-6 justify-between md:w-full w-full">
+              {/* <CardComponent
                 Images="https://arsitagx-master.s3.ap-southeast-1.amazonaws.com/img-medium/25110/26365/studio-lembar-putih-proyek-desain-rumah-kos-bapak-hd1666854479-m.jpeg"
                 Title="Rumah Murah di jawa barat"
                 Location="Bandung"
@@ -62,9 +63,13 @@ export default function HomePage() {
                 Images="https://arsitagx-master.s3.ap-southeast-1.amazonaws.com/img-medium/25110/26365/studio-lembar-putih-proyek-desain-rumah-kos-bapak-hd1666854479-m.jpeg"
                 Title="Rumah Murah di jawa barat"
                 Location="Bandung"
-              />
+              /> */}
+              {dataPerumahan.additionalData.map((item) => {
+                return <CardComponent data={item} />;
+              })}
             </div>
           </section>
+
           <section id="section-location1" className="flex flex-col gap-6">
             <div className="flex flex-col gap-3">
               <div className="text-[24px] font-semibold">Bandung</div>
@@ -88,7 +93,7 @@ export default function HomePage() {
                 )}
               </div>
             </div>
-            <div className="flex gap-6">
+            <div className="flex flex-row  md:gap-6 overflow-y-auto w-full md:w-full">
               <CardLocationComponent
                 Title={"Rumah dijual di Bandung"}
                 Description="lorem ipsiuna wdao ok oawdkawodkw oakdosldw aokod ka"
@@ -129,7 +134,7 @@ export default function HomePage() {
                 )}
               </div>
             </div>
-            <div className="flex gap-6">
+            <div className="flex flex-row md:gap-6 overflow-y-auto  w-full md:w-full">
               <CardLocationComponent
                 Title={"Rumah dijual di Bandung"}
                 Description="lorem ipsiuna wdao ok oawdkawodkw oakdosldw aokod ka"
@@ -194,7 +199,7 @@ export default function HomePage() {
             </div>
           </div> */}
         </section>
-        <section className="w-[32%] p-10 border-l-2 border-[#13353d04] flex  flex-col gap-6  h-fit">
+        <section className="md:w-[32%]   p-10 border-l-2 border-[#13353d04] md:flex hidden flex-col gap-6  h-fit ">
           <CardPopularComponent
             Images="https://arsitagx-master.s3.ap-southeast-1.amazonaws.com/img-medium/25110/26365/studio-lembar-putih-proyek-desain-rumah-kos-bapak-hd1666854479-m.jpeg"
             Title="Rumah Murah di jawa barat"
