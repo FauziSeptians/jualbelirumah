@@ -1,8 +1,11 @@
 import { useAtom } from "jotai";
 import { KeyboardEvent, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { TitleMenu } from "../data/constant/NavbarMenu";
+import { useCheckingSearchBar } from "../hooks/useCheckingSearchBar";
 import { searchValue } from "../store/searchValueStore";
+import PositiveWordComponent from "./PositiveWordComponent";
+import SearchComponent from "./SearchComponent";
 
 export default function NavbarComponent() {
   const [searchVal, setSearchVal] = useState("");
@@ -12,7 +15,7 @@ export default function NavbarComponent() {
     if (event.key === "Enter") {
       // Call the SearchSubmit function when the Enter key is pressed
       setSearchValAtom(searchVal);
-      navigate("/property?search=" + searchVal);
+      navigate("/Property?search=" + searchVal);
     }
   }
 
@@ -23,26 +26,16 @@ export default function NavbarComponent() {
     }
   }, []);
 
-  console.log(searchVal);
+  const path = useLocation();
+
+  const { show } = useCheckingSearchBar(path.pathname);
 
   return (
     <div className=" w-full h-[90px] z-[1000]">
       <div className="w-full h-full    flex items-center ">
         <div className="cursor-pointer ml-[20px] w-[12%]">{TitleMenu}</div>
-        <div className="w-[88%] md:flex hidden">
-          <div className="bg-[#ffd34e]  border border-l border-x border-[#00000016] flex items-center px-3">
-            <img src="/search.png" width={22}></img>
-          </div>
-          <input
-            type="text"
-            className="py-1 px-4 w-[700px] rounded-r-[100px] border border-x border-r border-[#00000016] bg-[#f1f3f9] "
-            placeholder="Search your dream house"
-            name="search"
-            onChange={(e) => setSearchVal(e.target.value)}
-            onKeyDown={handleSearchSubmit}
-            value={searchVal ? searchVal : ""}
-          />
-        </div>
+        {show && <SearchComponent />}
+        {!show && <PositiveWordComponent />}
       </div>
     </div>
   );

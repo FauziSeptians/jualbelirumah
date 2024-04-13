@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import CardComponent from "../../components/CardComponent";
 import ErrorDataNotFound from "../../components/ErrorDataNotFound";
+import SearchMobileComponent from "../../components/SearchMobileComponent";
 import useDataSearch from "../../hooks/useDataSearch";
 import DetailPage from "./DetailPage";
 
@@ -27,6 +28,9 @@ export default function PropertyPage() {
       }`}
     >
       {/* <div>Search your dream home!</div> */}
+      <div className="mb-10">
+        <SearchMobileComponent />
+      </div>
       <div
         className={`overflow-y-scroll   mb-10 ${
           clickedDetail ? "w-[50%]" : "w-full"
