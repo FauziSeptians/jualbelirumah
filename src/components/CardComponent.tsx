@@ -123,13 +123,13 @@ export default function CardComponent({
                     <div className="">
                       <img src="/bathroom.png" width={30}></img>
                     </div>
-                    <div>3</div>
+                    <div>{data.Details.Bathroom}</div>
                   </motion.div>
                   <motion.div className="flex gap-3 items-center">
                     <div className="">
                       <img src="/bedroom.png" width={30}></img>
                     </div>
-                    <div>3</div>
+                    <div>{data.Details.Bedroom}</div>
                   </motion.div>
                 </motion.div>
               )}
@@ -144,13 +144,13 @@ export default function CardComponent({
                     <div className="">
                       <img src="/area-graph.png" width={30}></img>
                     </div>
-                    <div>300</div>
+                    <div>{data.Details.AreaSurface}</div>
                   </motion.div>
                   <motion.div className="flex gap-3 items-center">
                     <div className="">
                       <img src="/house.png" width={30}></img>
                     </div>
-                    <div>500</div>
+                    <div>{data.Details.AreaBuilding}</div>
                   </motion.div>
                 </motion.div>
               )}

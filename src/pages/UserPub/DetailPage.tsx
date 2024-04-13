@@ -266,7 +266,7 @@ export default function DetailPage({
               fugit sequi accusamus architecto iste excepturi expedita, ducimus
               reiciendis ad aperiam perspiciatis et consequuntur?
             </div>
-            <div className="flex gap-3 mt-3">
+            <div className="flex md:flex-row flex-col gap-3 mt-3">
               <div className="w-full">
                 <ButtonComponent
                   Text="Message"
