@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { dataPerumahan } from "../types/CardTypes";
+import { dataPerumahanType } from "../types/CardTypes";
 
 export default function CardComponent({
   data,
   Clicked,
 }: {
-  data: dataPerumahan;
+  data: dataPerumahanType;
   Clicked?: boolean;
 }) {
   const [HoveredImages, setHoveredImages] = useState(false);

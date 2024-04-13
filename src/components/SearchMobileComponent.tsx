@@ -7,7 +7,7 @@ export default function SearchMobileComponent() {
   const [searchVal, setSearchVal] = useState("");
   const [, setSearchValAtom] = useAtom(searchValue);
   const navigate = useNavigate();
-  function handleSearchSubmit(event: KeyboardEvent<HTMLInputElement>) {
+  function handleSearchSubmit(event: React.KeyboardEvent<HTMLInputElement>) {
     if (event.key === "Enter") {
       // Call the SearchSubmit function when the Enter key is pressed
       setSearchValAtom(searchVal);

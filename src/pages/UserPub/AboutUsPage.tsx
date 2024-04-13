@@ -102,7 +102,7 @@ export default function AboutUsPage() {
           <div className="md:grid md:grid-cols-4 flex flex-col gap-6">
             {Array(8)
               .fill([])
-              .map((item) => {
+              .map(() => {
                 return (
                   <div className="w-[200px] h-[200px] bg-white rounded-lg"></div>
                 );

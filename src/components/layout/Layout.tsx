@@ -23,8 +23,8 @@ function CheckingNowPath(pathname: string) {
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [ModalImages] = useAtom(modalImageStore);
   const { pathname } = useLocation();
-  const [isLoading, setIsLoading] = useState(true);
-  const [searchVal, setSearchValAtom] = useAtom(searchValue);
+  const [isLoading] = useState(true);
+  const [, setSearchValAtom] = useAtom(searchValue);
 
   const Path = CheckingNowPath(pathname);
   useEffect(() => {
