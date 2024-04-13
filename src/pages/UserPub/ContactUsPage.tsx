@@ -21,7 +21,7 @@ export default function ContactUsPage() {
           Contact Our Team
         </div>
         <div className="w-full text-center  flex justify-center items-center">
-          <div className="w-[580px]  opacity-[0.6]">
+          <div className="w-[580px]  opacity-[0.6] md:text-[18px] text-[12px]">
             Got any question about the product or scaling on our platform? We're
             here to help. Chat to our friendly team 24/7 and get onboard in less
             than 5 minutes
@@ -29,7 +29,7 @@ export default function ContactUsPage() {
         </div>
       </div>
       <div className=" flex w-full justify-center mt-6 ">
-        <div className="w-[40%] ">
+        <div className="md:w-[40%] w-full ">
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col gap-6"
