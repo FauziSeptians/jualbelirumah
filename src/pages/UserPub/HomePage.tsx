@@ -4,17 +4,23 @@ import CardComponent from "../../components/CardComponent";
 import CardLocationComponent from "../../components/CardLocationComponent";
 import CardPopularComponent from "../../components/CardPopularComponent";
 import MiniCardPopularComponent from "../../components/MiniCardPopularComponent";
+import SearchMobileComponent from "../../components/SearchMobileComponent";
 import SectionMenuComponent from "../../components/SectionMenuComponent";
 import { Filterprice, sectionMenu } from "../../data/constant/SectionMenu";
-import { dataPerumahan } from "../../data/dummy/dataPerumahanDummy";
+import { useDataExplore } from "../../hooks/useDataExplore";
+import { useDataPerumahanRecomendation } from "../../hooks/useDataPerumahanRecomendation";
 
 export default function HomePage() {
   const [selectedsectionMenus, setSectionMenu] = useState(sectionMenu[0]);
   const [selectedFilterPrice, setFilterPrice] = useState(Filterprice[0]);
   const [selectedFilterPrice1, setFilterPrice1] = useState(Filterprice[0]);
-  const [selectedFilterPrice2, setFilterPrice2] = useState(Filterprice[0]);
 
   // console.log(wadwaw);
+
+  const { dataRecomendation } = useDataPerumahanRecomendation();
+  const { dataExplore } = useDataExplore();
+
+  console.log(dataRecomendation);
 
   return (
     <>
@@ -23,6 +29,8 @@ export default function HomePage() {
           className="flex flex-col gap-[50px] md:w-[68%] w-full h-[820px] overflow-y-scroll md:px-5 px-0 "
           id="scroll"
         >
+          <SearchMobileComponent />
+
           <section id="section-recomandation" className="flex flex-col gap-6">
             <div className="flex flex-col gap-3">
               <div className="text-[24px] font-semibold">
@@ -48,7 +56,7 @@ export default function HomePage() {
                 )}
               </div>
             </div>
-            <div className="flex md:flex-row flex-col gap-6 justify-between md:w-full w-full">
+            <div className="flex md:flex-row flex-col gap-6 justify-between md:w-full w-full overflow-x-auto">
               {/* <CardComponent
                 Images="https://arsitagx-master.s3.ap-southeast-1.amazonaws.com/img-medium/25110/26365/studio-lembar-putih-proyek-desain-rumah-kos-bapak-hd1666854479-m.jpeg"
                 Title="Rumah Murah di jawa barat"
@@ -64,7 +72,7 @@ export default function HomePage() {
                 Title="Rumah Murah di jawa barat"
                 Location="Bandung"
               /> */}
-              {dataPerumahan.additionalData.map((item) => {
+              {dataExplore.additionalData.map((item) => {
                 return <CardComponent data={item} />;
               })}
             </div>
@@ -199,24 +207,15 @@ export default function HomePage() {
             </div>
           </div> */}
         </section>
+
         <section className="md:w-[32%]   p-10 border-l-2 border-[#13353d04] md:flex hidden flex-col gap-6  h-fit ">
-          <CardPopularComponent
-            Images="https://arsitagx-master.s3.ap-southeast-1.amazonaws.com/img-medium/25110/26365/studio-lembar-putih-proyek-desain-rumah-kos-bapak-hd1666854479-m.jpeg"
-            Title="Rumah Murah di jawa barat"
-            Location="Bandung"
-            Harga={500000000}
-            Description="lorem ipsum dolor si ematawda adawdsd sd wd asd  adwd as  dawdaw"
-          />
+          <CardPopularComponent data={dataRecomendation.additionalData[0]} />
           <div className="flex flex-col gap-3">
             <MiniCardPopularComponent
-              Images="https://arsitagx-master.s3.ap-southeast-1.amazonaws.com/img-medium/25110/26365/studio-lembar-putih-proyek-desain-rumah-kos-bapak-hd1666854479-m.jpeg"
-              Title="Rumah Murah di jawa barat"
-              Location="Bandung"
+              data={dataRecomendation.additionalData[1]}
             />
             <MiniCardPopularComponent
-              Images="https://arsitagx-master.s3.ap-southeast-1.amazonaws.com/img-medium/25110/26365/studio-lembar-putih-proyek-desain-rumah-kos-bapak-hd1666854479-m.jpeg"
-              Title="Rumah Murah di jawa barat"
-              Location="Bandung"
+              data={dataRecomendation.additionalData[2]}
             />
           </div>
         </section>
