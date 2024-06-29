@@ -16,9 +16,9 @@ export default function PositiveWordComponent() {
   const currentText = kataSemangat[currentIndex];
 
   return (
-    <div className="running-text md:flex gap-3 items-center hidden">
+    <div className="running-text gap-3 items-center flex text-xs">
       <div>
-        <img src={currentText.flag} width={22}></img>
+        <img src={currentText.flag} width={16}></img>
       </div>
       <motion.span
         key={currentText.text} // Key based on current text for reactivity

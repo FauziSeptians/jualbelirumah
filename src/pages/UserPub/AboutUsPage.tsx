@@ -1,7 +1,7 @@
 export default function AboutUsPage() {
   return (
     <div className="w-full h-[820px] overflow-x-auto  flex flex-col gap-10">
-      <div className="text-[24px] font-semibold">About Us Pages</div>
+      <div className="text-md font-semibold">About Us Pages</div>
       <section className="w-full md:h-[900px] h-fit  md:p-10 p-5 flex md:flex-row flex-col md:gap-0 gap-6 justify-center items-center bg-[#ffd34e]">
         <div className="md:w-[30%] h-full flex justify-center items-center ">
           <img
@@ -12,9 +12,9 @@ export default function AboutUsPage() {
         </div>
         <div className="md:w-[70%] w-full h-full flex md:justify-center items-center">
           <div className="flex flex-col gap-6">
-            <div className="text-[20px] font-semibold">TPROPERTY</div>
+            <div className="text-sm font-semibold">TPROPERTY</div>
             <div className="md:w-[700px] w-full text-justify flex flex-col gap-6">
-              <div className="">
+              <div className="text-sm">
                 Prestasi Property adalah perusahaan agen properti yang
                 berkomitmen untuk menyediakan solusi properti terbaik bagi klien
                 kami. Dengan tim yang berpengalaman dan berdedikasi, kami telah
@@ -45,8 +45,8 @@ export default function AboutUsPage() {
 
       <section id="our-services">
         <div className="w-full h-[200px] flex flex-col gap-6 justify-center items-center ">
-          <div className="text-[24px] font-semibold">Our Services</div>
-          <div className="text-[30px] font-bold w-full text-center">
+          <div className="text-md font-semibold">Our Services</div>
+          <div className="text-sm font-bold w-full text-center">
             Layanan yang kami berikan kepada anda
           </div>
           <div className="flex gap-6">
@@ -59,23 +59,22 @@ export default function AboutUsPage() {
       </section>
       <section id="our-services bg-red-200 " className="bg-[#ffd34e] p-5">
         <div className="w-full h-fit flex flex-col gap-6 justify-center items-center   ">
-          <div className="text-[24px] font-semibold">Visi & Misi</div>
-          <div className="text-[30px] font-bold w-full text-center">
+          <div className="text-md font-semibold">Visi & Misi</div>
+          <div className="text-sm font-bold w-full text-center">
             Visi & Misi perusahaan kami
           </div>
           <div className="flex md:flex-row flex-col w-full  gap-6  md:mx-5 text-justify">
             <div className="md:w-[50%] w-full md:p-10">
-              <div className="text-[20px] font-semibold">Visi</div>
-              <div>
+              <div className="text-sm font-semibold">Visi</div>
+              <div className="text-sm">
                 Menjadi agen properti terkemuka yang memberikan layanan terbaik,
                 inovatif, dan profesional kepada setiap klien, serta menjadi
                 mitra terpercaya dalam memenuhi kebutuhan properti mereka.
               </div>
             </div>
             <div className="md:w-[50%] w-full md:p-10">
-              <div className="text-[20px] font-semibold">Misi</div>
-
-              <div>
+              <div className="text-sm font-semibold">Misi</div>
+              <div className="text-sm">
                 Memberikan layanan yang personal dan berkualitas tinggi kepada
                 setiap klien untuk membantu mereka mencapai tujuan properti
                 mereka. Menyediakan informasi dan saran yang akurat serta
@@ -95,8 +94,8 @@ export default function AboutUsPage() {
       </section>
       <section id="our-services">
         <div className="w-full  flex flex-col gap-6 justify-center items-center ">
-          <div className="text-[24px] font-semibold">Property Gallery</div>
-          <div className="text-[30px] font-bold w-full text-center">
+          <div className="text-md font-semibold">Property Gallery</div>
+          <div className="text-sm font-bold w-full text-center">
             Property terbaik yang dijual oleh agent kami
           </div>
           <div className="md:grid md:grid-cols-4 flex flex-col gap-6">

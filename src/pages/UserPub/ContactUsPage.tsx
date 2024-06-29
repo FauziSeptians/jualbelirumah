@@ -15,13 +15,13 @@ export default function ContactUsPage() {
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
 
   return (
-    <div className="w-full h-[820px] overflow-x-auto  flex flex-col gap-10 ">
+    <div className="w-full h-[820px] overflow-x-auto flex flex-col gap-10 ">
       <div className="flex flex-col gap-3">
-        <div className="w-full text-center text-[24px] font-semibold ">
+        <div className="w-full text-center text-md font-semibold ">
           Contact Our Team
         </div>
         <div className="w-full text-center  flex justify-center items-center">
-          <div className="w-[580px]  opacity-[0.6] md:text-[18px] text-[12px]">
+          <div className="w-[580px]  opacity-[0.6] md:text-sm text-sm">
             Got any question about the product or scaling on our platform? We're
             here to help. Chat to our friendly team 24/7 and get onboard in less
             than 5 minutes

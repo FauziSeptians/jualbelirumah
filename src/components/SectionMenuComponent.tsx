@@ -21,11 +21,11 @@ export default function SectionMenuComponent({
       onClick={() => setHoverText(Text)}
       onMouseLeave={() => setHoverText(defaultText)}
     >
-      <div className={`${boolHovered && "text-[#ffd34e]"}`}>{Text}</div>
+      <div className={`${boolHovered && "text-primary"} text-sm`}>{Text}</div>
 
       {boolHovered ? (
         <motion.div
-          className="bg-[#ffd34e] h-[2px] w-[45px]"
+          className="bg-primary h-[2px] w-[45px]"
           initial={{ width: "0px" }}
           animate={{ width: "45px" }}
         ></motion.div>
