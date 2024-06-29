@@ -16,11 +16,11 @@ export default function CardComponent({
       {!Clicked ? (
         <Link to={`/detail/${data.Id}`}>
           <div
-            className="w-[350px] cursor-pointer"
+            className="cursor-pointer w-[300px] md:w-full"
             onMouseOver={() => setHoveredImages(true)}
             onMouseLeave={() => setHoveredImages(false)}
           >
-            <div className="h-[400px] relative">
+            <div className="w-[300px] h-[400px] md:w-full relative">
               <img
                 src={data.Images.Thumbnail}
                 className="w-full h-full object-cover rounded-[25px] shadow-lg bg-gray-500 "
@@ -37,8 +37,8 @@ export default function CardComponent({
                 {HoveredImages && (
                   <motion.div
                     className="w-full flex flex-col gap-6"
-                    initial={{ y: "100px", opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
+                    initial={{ x: "10px", opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.2 }}
                   >
                     <motion.div className="flex gap-3 items-center">
@@ -58,8 +58,8 @@ export default function CardComponent({
                 {HoveredImages && (
                   <motion.div
                     className="w-full flex flex-col gap-6"
-                    initial={{ y: "100px", opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
+                    initial={{ x: "10px", opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.6 }}
                   >
                     <motion.div className="flex gap-3 items-center">
@@ -79,11 +79,11 @@ export default function CardComponent({
               </div>
             </div>
             <div className="mt-3">
-              <div className="text-[18px]">{data.Title}</div>
-              <div className="flex flex-col gap-6 text-[16px] opacity-[0.6] ">
+              <div className="text-sm">{data.Title}</div>
+              <div className="flex flex-col gap-6 text-xs opacity-[0.6] ">
                 <div className="flex gap-3 ">
                   <div>
-                    <img src="/placeholder.png" width={22}></img>
+                    <img src="/placeholder.png" width={14}></img>
                   </div>
                   <div>{data.Location}</div>
                 </div>
@@ -93,7 +93,7 @@ export default function CardComponent({
         </Link>
       ) : (
         <div
-          className="w-[350px] cursor-pointer"
+          className="w-[350px] md:w-full cursor-pointer"
           onMouseOver={() => setHoveredImages(true)}
           onMouseLeave={() => setHoveredImages(false)}
         >
@@ -115,8 +115,8 @@ export default function CardComponent({
               {HoveredImages && (
                 <motion.div
                   className="w-full flex flex-col gap-6"
-                  initial={{ y: "100px", opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
+                  initial={{ x: "10px", opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.2 }}
                 >
                   <motion.div className="flex gap-3 items-center">
@@ -136,8 +136,8 @@ export default function CardComponent({
               {HoveredImages && (
                 <motion.div
                   className="w-full flex flex-col gap-6"
-                  initial={{ y: "100px", opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
+                  initial={{ x: "10px", opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.6 }}
                 >
                   <motion.div className="flex gap-3 items-center">
@@ -157,8 +157,8 @@ export default function CardComponent({
             </div>
           </div>
           <div className="mt-3">
-            <div className="text-[18px]">{data.Title}</div>
-            <div className="flex flex-col gap-6 text-[16px] opacity-[0.6] ">
+            <div className="text-sm">{data.Title}</div>
+            <div className="flex flex-col gap-6 text-sm opacity-[0.6] ">
               <div className="flex gap-3 ">
                 <div>
                   <img src="/placeholder.png" width={22}></img>

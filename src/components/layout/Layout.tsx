@@ -38,7 +38,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [HoverKey, setHoverKey] = useState(Path);
 
   return (
-    <>
+    <div className="bg-neutral">
       {ModalImages.length != 0 && (
         <ModalsImagesComponent Images={ModalImages} />
       )}
@@ -49,7 +49,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         />
       )}
       {PopupModalMobile ? (
-        <div className="fixed w-full h-screen bg-white z-[1000] flex justify-center items-center">
+        <div className="fixed w-full h-screen z-[1000] flex justify-center items-center">
           <div className="">
             {SectionMenu.map((item) =>
               HoverKey == item.Title ? (
@@ -69,7 +69,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                         transition={{ type: "spring" }}
                       ></motion.div>
                       <div className="absolute top-[25%] left-[22px]">
-                        <img src={item.Icon} width={22}></img>
+                        {/* <img src={item.Icon} width={22}></img> */}
+                        {item.Icon}
                       </div>
                     </div>
                     <div>{item.Title}</div>
@@ -83,9 +84,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   onMouseLeave={() => setHoverKey(Path)}
                 >
                   <div className="relative w-[80px] h-[50px] ">
-                    {/* <div className="absolute px-[20px] bg-green-200 rounded-r-[100px] w-full h-full  py-3"></div> */}
                     <div className="absolute top-[25%] left-[22px]">
-                      <img src={item.Icon} width={22}></img>
+                      {/* <img src={item.Icon} width={22}></img> */}
+                      {item.Icon}
                     </div>
                   </div>
                   <div className="">{item.Title}</div>
@@ -95,18 +96,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </div>
       ) : null}
-      <NavbarComponent />
-      <div className="flex ">
-        <div className="md:flex hidden w-[12%] ">
+      <NavbarComponent Path={Path} />
+      <div className="flex w-full">
+        <div className="2xl:flex hidden min-w-48 pt-8">
           <SideBarComponent Path={Path} />
         </div>
-        <div className="md:w-[88%] w-full p-3 ">
-          <div className="">{children}</div>
-        </div>
+        <motion.div
+          className="w-full pt-8"
+          initial={{ opacity: 0, y: "100px" }}
+          animate={{ opacity: 1, y: "0px" }}
+          transition={{ delay: 0.6 }}
+          key={Path}
+        >
+          {children}
+        </motion.div>
       </div>
       <div className="mt-6">
         <FooterComponent />
       </div>
-    </>
+    </div>
   );
 }

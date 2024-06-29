@@ -17,7 +17,7 @@ export default function ButtonComponent({
     <a href={LinkURL} target="_blank">
       <motion.div
         className={`py-2 px-5 rounded-lg ${
-          Color ? `bg-[${Color}]` : "bg-[#ffd34e]"
+          Color ? `bg-[${Color}]` : "bg-primary text-white"
         } cursor-pointer ${
           Icon ? "flex gap-3 items-center justify-center" : null
         } ${Border ? Border : null}`}
@@ -28,7 +28,7 @@ export default function ButtonComponent({
             <img src={Icon} width={18}></img>
           </div>
         )}
-        <div>{Text}</div>
+        <div className="text-sm font-medium">{Text}</div>
       </motion.div>
     </a>
   );
