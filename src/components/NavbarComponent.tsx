@@ -1,8 +1,5 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { SectionMenu, TitleMenu } from "../data/constant/NavbarMenu";
-import { useCheckingSearchBar } from "../hooks/useCheckingSearchBar";
-import PositiveWordComponent from "./PositiveWordComponent";
-import SearchComponent from "./SearchComponent";
 import { SectionNavbarMobileComponent } from "./SectionNavbarMobileComponent";
 import TimeCounter from "./TimeCounter";
 

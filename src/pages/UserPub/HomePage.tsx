@@ -4,14 +4,12 @@ import CardComponent from "../../components/CardComponent";
 import CardLocationComponent from "../../components/CardLocationComponent";
 import CardPopularComponent from "../../components/CardPopularComponent";
 import MiniCardPopularComponent from "../../components/MiniCardPopularComponent";
-import SearchMobileComponent from "../../components/SearchMobileComponent";
 import SectionMenuComponent from "../../components/SectionMenuComponent";
 import { Filterprice, sectionMenu } from "../../data/constant/SectionMenu";
 import { useDataExplore } from "../../hooks/useDataExplore";
 import { useDataPerumahanRecomendation } from "../../hooks/useDataPerumahanRecomendation";
 import { ourServices } from "../../data/dummy/ourServices";
 import { motion } from "framer-motion";
-import PositiveWordComponent from "../../components/PositiveWordComponent";
 
 export default function HomePage() {
   const [selectedsectionMenus, setSectionMenu] = useState(sectionMenu[0]);
