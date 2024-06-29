@@ -39,7 +39,7 @@ export default function PropertyPage() {
         <div
           className={`w-full ${
             !clickedDetail
-              ? "md:grid grid-cols-4 md:mb-0 flex flex-col"
+              ? "md:grid xl:grid-cols-3 2xl:grid-cols-4 lg:grid-cols-2 grid-cols-2 md:mb-0 flex flex-col "
               : "grid grid-cols-2"
           } gap-6 `}
         >

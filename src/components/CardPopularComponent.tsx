@@ -19,18 +19,18 @@ export default function CardPopularComponent({
           ></img>
         </div>
         <div className="mt-3 flex flex-col gap-3">
-          <div>
-            <div className="text-[18px]">{data.Title}</div>
-            <div className="flex flex-col gap-6 text-[16px] opacity-[0.6]">
-              <div className="flex gap-3">
+          <div className="flex flex-col gap-2">
+            <div className="text-sm">{data.Title}</div>
+            <div className="flex flex-col gap-6 text-sm opacity-[0.6]">
+              <div className="flex gap-2">
                 <div>
-                  <img src="/placeholder.png" width={22}></img>
+                  <img src="/placeholder.png" width={16}></img>
                 </div>
                 <div>{data.Location}</div>
               </div>
             </div>
           </div>
-          <div className="text-[16px] opacity-[1] line-clamp-3 ">
+          <div className="text-sm opacity-[1] line-clamp-3">
             {data.Description}
           </div>
         </div>

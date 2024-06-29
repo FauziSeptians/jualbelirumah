@@ -5,14 +5,23 @@ export function SectionNavbarMobileComponent() {
   const [, setPopupModal] = useAtom(PopupModals);
   return (
     <div
-      className="relative  mr-[20px] h-[20px] w-[25px] md:hidden block"
+      className="relative mr-[20px] h-[20px] w-[25px] lg:hidden block"
       onClick={() => setPopupModal(true)}
     >
-      <div className="absolute top-0 w-full h-fit flex flex-col  gap-1 items-end text-end">
-        <div className="w-full h-[5px] bg-[#ffd34e]"></div>
-        <div className="w-[80%] h-[5px] bg-[#ffd34e]"></div>
-        <div className="w-[60%] h-[5px] bg-[#ffd34e]"></div>
-      </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="size-6 text-white cursor-pointer"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        />
+      </svg>
     </div>
   );
 }

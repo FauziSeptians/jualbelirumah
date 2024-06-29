@@ -7,7 +7,14 @@ export default {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#1252ae',
+        secondary : "#ddebf2",
+        ternery : "#aaafb7",
+        neutral : "#ffffff"
+      },
+    },
   },
 
   plugins: [
@@ -16,7 +23,7 @@ export default {
         light: {
           colors: {
             primary: {
-              DEFAULT: "#ffd34e",
+              DEFAULT: "#1252ae",
               foreground: "#000000",
             },
             focus: "#BEF264",
