@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { dataPerumahan } from '../data/dummy/dataPerumahanDummy'
-import { dataPerumahanType } from '../types/CardTypes'
 
 export default function useDataSearch(search: string | null) {
 	const [data, setData] = useState<any>([])

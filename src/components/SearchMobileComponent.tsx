@@ -1,7 +1,5 @@
-import { useAtom } from 'jotai'
 import { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import { searchValue } from '../store/searchValueStore'
 
 export default function SearchMobileComponent() {
 	const [searchVal, setSearchVal] = useState('')

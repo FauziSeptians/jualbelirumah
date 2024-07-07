@@ -110,7 +110,7 @@ export default function PropertyPage() {
 						<Pagination
 							total={totalPage}
 							initialPage={page + 1}
-							onChange={(val) => setPage((prev) => val - 1)}
+							onChange={(val) => setPage(() => val - 1)}
 						/>
 					</div>
 				) : null}
