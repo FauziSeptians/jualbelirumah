@@ -23,14 +23,14 @@ export default function SearchComponent() {
   }, []);
 
   return (
-    <div className="w-[88%] md:flex hidden">
-      <div className="bg-[#ffd34e]  border border-l border-x border-[#00000016] flex items-center px-3">
+    <div className="hidden w-[88%] md:flex">
+      <div className="flex items-center border border-x border-l border-[#00000016] bg-[#ffd34e] px-3">
         <img src="/search.png" width={22}></img>
       </div>
 
       <input
         type="text"
-        className="py-1 px-4 w-[700px] rounded-r-[100px] border border-x border-r border-[#00000016] bg-[#f1f3f9] "
+        className="w-[700px] rounded-r-[100px] border border-x border-r border-[#00000016] bg-[#f1f3f9] px-4 py-1"
         placeholder="Search your dream house"
         name="search"
         onChange={(e) => setSearchVal(e.target.value)}

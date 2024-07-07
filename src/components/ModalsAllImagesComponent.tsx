@@ -15,11 +15,11 @@ export default function ModalsAllImagesComponent({
   const [, setOpenModalAllImages] = useAtom(modalAllImageStore);
 
   return (
-    <div className="fixed z-[1000] bg-[#000000c9] w-full h-screen flex justify-center items-center cursor-pointer">
-      <div className="text-white absolute w-full flex justify-between  px-[100px]">
+    <div className="fixed z-[1000] flex h-screen w-full cursor-pointer items-center justify-center bg-[#000000c9]">
+      <div className="absolute flex w-full justify-between px-[100px] text-white">
         {idxModalAllImage != 0 ? (
           <div
-            className="w-[50px] h-[50px] bg-[#ffd34e] rounded-full flex justify-center items-center"
+            className="flex h-[50px] w-[50px] items-center justify-center rounded-full bg-[#ffd34e]"
             onClick={() => setIdxModalAllImage(idxModalAllImage - 1)}
           >{`<-`}</div>
         ) : (
@@ -27,7 +27,7 @@ export default function ModalsAllImagesComponent({
         )}
         {idxModalAllImage != lengthData ? (
           <div
-            className="w-[50px] h-[50px] bg-[#ffd34e] rounded-full flex justify-center items-center"
+            className="flex h-[50px] w-[50px] items-center justify-center rounded-full bg-[#ffd34e]"
             onClick={() => setIdxModalAllImage(idxModalAllImage + 1)}
           >{`->`}</div>
         ) : (
@@ -36,7 +36,7 @@ export default function ModalsAllImagesComponent({
       </div>
       <img
         src={Images}
-        className=" bg-red-300"
+        className="bg-red-300"
         onClick={() => setOpenModalAllImages([])}
       ></img>
       <div className=""></div>

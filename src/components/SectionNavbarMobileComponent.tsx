@@ -5,7 +5,7 @@ export function SectionNavbarMobileComponent() {
   const [, setPopupModal] = useAtom(PopupModals);
   return (
     <div
-      className="relative mr-[20px] h-[20px] w-[25px] lg:hidden block"
+      className="relative mr-[20px] block h-[20px] w-[25px] lg:hidden"
       onClick={() => setPopupModal(true)}
     >
       <svg
@@ -14,7 +14,7 @@ export function SectionNavbarMobileComponent() {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="size-6 text-white cursor-pointer"
+        className="size-6 cursor-pointer text-white"
       >
         <path
           strokeLinecap="round"

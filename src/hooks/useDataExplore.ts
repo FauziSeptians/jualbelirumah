@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { dataPerumahan } from "../data/dummy/dataPerumahanDummy";
+import { useMemo } from 'react'
+import { dataPerumahan } from '../data/dummy/dataPerumahanDummy'
 
 export function useDataExplore() {
-  const [dataExplore] = useState(dataPerumahan);
-  return { dataExplore };
+	const dataExplore = useMemo(() => dataPerumahan, []) // Menyimpan dataPerumahan dalam useMemo
+
+	return { dataExplore }
 }

@@ -7,7 +7,7 @@ export default function ErrorsPages() {
     navigate(-1); // Kembali ke previous route
   };
   return (
-    <div className="w-full h-screen  flex  justify-center items-center text-center">
+    <div className="flex h-screen w-full items-center justify-center text-center">
       <div>
         <div className="text-[120px] font-bold">500</div>
         <div className="text-[24px] font-semibold">

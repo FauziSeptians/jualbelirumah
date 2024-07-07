@@ -1,42 +1,55 @@
-import { useAtom } from "jotai";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { searchValue } from "../store/searchValueStore";
+import { useAtom } from 'jotai'
+import { useEffect, useState } from 'react'
+import { useNavigate, useSearchParams } from 'react-router-dom'
+import { searchValue } from '../store/searchValueStore'
 
 export default function SearchMobileComponent() {
-  const [searchVal, setSearchVal] = useState("");
-  const [, setSearchValAtom] = useAtom(searchValue);
-  const navigate = useNavigate();
-  function handleSearchSubmit(event: React.KeyboardEvent<HTMLInputElement>) {
-    if (event.key === "Enter") {
-      // Call the SearchSubmit function when the Enter key is pressed
-      setSearchValAtom(searchVal);
-      navigate("/Property?search=" + searchVal);
-    }
-  }
+	const [searchVal, setSearchVal] = useState('')
+	const [searchparams, setSearchParams] = useSearchParams()
+	const navigate = useNavigate()
+	function handleSearchSubmit(event: React.KeyboardEvent<HTMLInputElement>) {
+		if (event.key === 'Enter') {
+			if (searchVal) return navigate('/Property?search=' + searchVal)
+			searchparams.delete('search')
+			setSearchParams(searchparams)
+		}
+	}
 
-  useEffect(() => {
-    const storedData = localStorage.getItem("searchVal");
-    if (storedData) {
-      setSearchVal(JSON.parse(storedData));
-    }
-  }, []);
+	useEffect(() => {
+		const value = searchparams.get('search')
+		if (value) {
+			setSearchVal(value)
+		}
+	}, [searchparams])
 
-  return (
-    <div className="w-full md:hidden flex">
-      <div className="bg-[#ffd34e]  border border-l border-x border-[#00000016] flex items-center px-3">
-        <img src="/search.png" width={22}></img>
-      </div>
+	console.log(searchVal)
 
-      <input
-        type="text"
-        className="py-1 px-4 w-[700px] rounded-r-[100px] border border-x border-r border-[#00000016] bg-[#f1f3f9] "
-        placeholder="Search your dream house"
-        name="search"
-        onChange={(e) => setSearchVal(e.target.value)}
-        onKeyDown={handleSearchSubmit}
-        value={searchVal ? searchVal : ""}
-      />
-    </div>
-  );
+	return (
+		<div className="flex w-full max-w-md flex-col gap-3 rounded-md bg-white px-4 py-2 shadow-sm">
+			<div className="relative flex items-center gap-3">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					strokeWidth={1.5}
+					stroke="currentColor"
+					className="size-6"
+				>
+					<path
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+					/>
+				</svg>
+				<input
+					type="text"
+					placeholder="Cari property"
+					className="w-full appearance-none text-xs outline-none focus:outline-none"
+					onChange={(e) => setSearchVal(e.target.value)}
+					onKeyDown={handleSearchSubmit}
+					value={searchVal ?? ''}
+				/>
+			</div>
+		</div>
+	)
 }

@@ -4,21 +4,21 @@
 
 /* Custom Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
-      width: 12px; /* Lebar scrollbar */
-  }
+  width: 12px; /* Lebar scrollbar */
+}
 
-  .custom-scrollbar::-webkit-scrollbar-track {
-      background: #f0f0f0; /* Warna track scrollbar */
-  }
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Warna track scrollbar */
+}
 
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-      background-color: #0077b6; /* Warna thumb scrollbar */
-      border-radius: 10px; /* Radius border thumb */
-      border: 3px solid #f0f0f0; /* Border untuk memberikan padding antara thumb dan track */
-  }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #0077b6; /* Warna thumb scrollbar */
+  border-radius: 10px; /* Radius border thumb */
+  border: 3px solid #f0f0f0; /* Border untuk memberikan padding antara thumb dan track */
+}
 
-  /* Custom Scrollbar untuk Firefox */
-  .custom-scrollbar {
-      scrollbar-width: thin;
-      scrollbar-color: #0077b6 #f0f0f0;
-  }
+/* Custom Scrollbar untuk Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #0077b6 #f0f0f0;
+}

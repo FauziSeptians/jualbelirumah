@@ -6,7 +6,7 @@ export default function ModalsImagesComponent({ Images }: { Images: string }) {
 
   return (
     <div
-      className="fixed z-[1000] bg-[#000000c9] w-full h-screen flex justify-center items-center cursor-pointer"
+      className="fixed z-[1000] flex h-screen w-full cursor-pointer items-center justify-center bg-[#000000c9]"
       onClick={() => setOpenModalImage("")}
     >
       <img src={Images}></img>

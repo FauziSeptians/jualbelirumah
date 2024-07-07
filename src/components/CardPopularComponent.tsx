@@ -11,11 +11,11 @@ export default function CardPopularComponent({
 }) {
   return (
     <Link to={`/detail/${data.Id}`}>
-      <motion.div className="w-full ">
+      <motion.div className="w-full">
         <div className="h-[300px]">
           <img
             src={data.Images.Thumbnail}
-            className="w-full h-full object-cover rounded-[25px] shadow-lg bg-gray-500 "
+            className="h-full w-full rounded-[25px] bg-gray-500 object-cover shadow-lg"
           ></img>
         </div>
         <div className="mt-3 flex flex-col gap-3">
@@ -30,11 +30,11 @@ export default function CardPopularComponent({
               </div>
             </div>
           </div>
-          <div className="text-sm opacity-[1] line-clamp-3">
+          <div className="line-clamp-3 text-sm opacity-[1]">
             {data.Description}
           </div>
         </div>
-        <div className="flex justify-between items-center mt-6">
+        <div className="mt-6 flex items-center justify-between">
           <div className="text-[18px] font-bold">
             {toRupiah(data.Price.toString())}
           </div>
