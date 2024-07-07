@@ -95,7 +95,7 @@ export default function AboutUsPage() {
 					</div>
 				</div>
 			</section>
-			<section className="flex w-full flex-col gap-6">
+			<section className="flex w-full flex-col gap-6 p-5">
 				<div className="flex items-center justify-center">
 					<div className="text-center">
 						<div className="text-md font-semibold">Gallery</div>

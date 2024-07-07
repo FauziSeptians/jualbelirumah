@@ -83,7 +83,7 @@ export default function PropertyPage() {
 						!clickedDetail
 							? 'flex grid-cols-2 flex-col md:mb-0 md:grid lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'
 							: 'grid grid-cols-2'
-					} gap-6`}
+					} gap-11`}
 				>
 					{showData?.length != 0 &&
 						showData?.map((item: dataPerumahanType) => {
