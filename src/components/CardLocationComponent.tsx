@@ -15,13 +15,13 @@ export default function CardLocationComponent({
 }) {
 	const [Hover, setHover] = useState(false)
 	return (
-		<Link to={`/detail/${ID}`} className="h-full w-full">
+		<Link to={`/detail/${ID}`} className="h-full w-[300px] md:w-full">
 			<div
-				className="relative h-[220px] w-[400px] cursor-pointer md:w-full"
+				className="relative h-[220px] w-[300px] cursor-pointer md:w-full"
 				onMouseEnter={() => setHover(true)}
 				onMouseLeave={() => setHover(false)}
 			>
-				<div className="h-full">
+				<div className="h-full w-full">
 					<img
 						className="h-full w-full rounded-lg object-cover"
 						src={Images}
@@ -47,6 +47,9 @@ export default function CardLocationComponent({
 						</div>
 					</motion.div>
 				)}
+				<div className="absolute right-2 top-2 rounded-full bg-neutral px-5 py-1 text-xs font-medium text-primary">
+					Rumah
+				</div>
 			</div>
 		</Link>
 	)

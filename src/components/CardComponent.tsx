@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { dataPerumahanType } from '../types/CardTypes'
 
 export default function CardComponent({
@@ -11,25 +11,34 @@ export default function CardComponent({
 	Clicked?: boolean
 }) {
 	const [HoveredImages, setHoveredImages] = useState(false)
+	const isMobile =
+		/Iphone|iPad|iPod|Android|Opera Mini|Blackberry|webOS|Windows Phone|Samsung|HTC|Micromax|Motorola|诺基亚|索尼|华为|小米|魅族|OPPO|VIVO/i.test(
+			navigator.userAgent
+		)
+	const { pathname } = useLocation()
+
+	const isHomePage = pathname === '/' ? true : false
 
 	return (
 		<>
 			{!Clicked ? (
 				<Link to={`/detail/${data.Id}`} className="h-full w-full">
 					<div
-						className="w-[300px] cursor-pointer md:w-full"
+						className={`cursor-pointer md:w-full ${isMobile && !isHomePage ? 'w-full' : 'w-[300px]'}`}
 						onMouseOver={() => setHoveredImages(true)}
 						onMouseLeave={() => setHoveredImages(false)}
 					>
-						<div className="relative h-[400px] w-[300px] md:w-full">
+						<div
+							className={`relative h-[400px] md:w-full ${isMobile && !isHomePage ? 'w-full' : 'w-[300px]'}`}
+						>
 							<img
 								src={data.Images.Thumbnail}
-								className="h-full w-full rounded-[25px] bg-gray-500 object-cover shadow-lg"
+								className="h-full w-full rounded-lg bg-gray-500 object-cover shadow-lg"
 							></img>
 
 							{HoveredImages && (
 								<motion.div
-									className="absolute bottom-0 h-full w-full rounded-[25px] bg-black opacity-[0.6]"
+									className="absolute bottom-0 h-full w-full rounded-lg bg-black opacity-[0.6]"
 									initial={{ height: 0, opacity: 0 }}
 									animate={{ height: '100%', opacity: 0.6 }}
 								></motion.div>
@@ -78,6 +87,9 @@ export default function CardComponent({
 									</motion.div>
 								)}
 							</div>
+							<div className="absolute right-3 top-3 rounded-full bg-neutral px-5 py-1 text-xs font-medium text-primary">
+								Rumah
+							</div>
 						</div>
 						<div className="mt-3">
 							<div className="line-clamp-1 text-sm">{data.Title}</div>
@@ -99,15 +111,15 @@ export default function CardComponent({
 					onMouseLeave={() => setHoveredImages(false)}
 				>
 					<div className="relative h-[400px]">
-						<div className="h-full w-full rounded-[25px] bg-gray-500 object-cover shadow-lg">
+						<div className="h-full w-full rounded-lg bg-gray-500 object-cover shadow-lg">
 							<img
 								src={data.Images.Thumbnail}
-								className="h-full w-full rounded-[25px] bg-gray-500 object-cover shadow-lg"
+								className="h-full w-full rounded-lg bg-gray-500 object-cover shadow-lg"
 							></img>
 						</div>
 						{HoveredImages && (
 							<motion.div
-								className="absolute bottom-0 h-full w-full rounded-[25px] bg-black opacity-[0.6]"
+								className="absolute bottom-0 h-full w-full rounded-lg bg-black opacity-[0.6]"
 								initial={{ height: 0, opacity: 0 }}
 								animate={{ height: '100%', opacity: 0.6 }}
 							></motion.div>
