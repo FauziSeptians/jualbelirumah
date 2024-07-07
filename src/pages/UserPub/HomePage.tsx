@@ -6,7 +6,6 @@ import CardPopularComponent from '../../components/CardPopularComponent'
 import MiniCardPopularComponent from '../../components/MiniCardPopularComponent'
 import SectionMenuComponent from '../../components/SectionMenuComponent'
 import { Filterprice, sectionMenu } from '../../data/constant/SectionMenu'
-import { useDataExplore } from '../../hooks/useDataExplore'
 import { useDataPerumahanRecomendation } from '../../hooks/useDataPerumahanRecomendation'
 import { ourServices } from '../../data/dummy/ourServices'
 import { motion } from 'framer-motion'
@@ -26,7 +25,6 @@ export default function HomePage() {
 		useDataPerumahanRecomendationForUser()
 	const { data: dataRecomandationPopular } =
 		useDataPerumahanRecomendationPopular()
-	const { dataExplore } = useDataExplore()
 	const { data } = useDataGallery()
 	const navigate = useNavigate()
 	const [isInputSearchSelected, setIsInputSearchSelected] = useState(false)

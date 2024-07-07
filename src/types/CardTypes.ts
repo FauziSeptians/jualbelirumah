@@ -16,7 +16,7 @@ export type dataPerumahanType = {
 	Title: string
 	Location: string
 	Clicked?: boolean
-	Price: bigint
+	Price: number
 	Details: {
 		Tipe: string
 		Transaksi: string

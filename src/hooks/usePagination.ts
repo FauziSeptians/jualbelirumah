@@ -4,7 +4,7 @@ export default function usePagination(page: number) {
 	const initialIdx = page * 12
 	const lastIdx = initialIdx + 11
 	const data = dataPerumahan.additionalData.filter(
-		(item, idx) => idx >= initialIdx && idx <= lastIdx
+		(item, idx) => idx >= initialIdx && idx <= lastIdx && item
 	)
 
 	return {
