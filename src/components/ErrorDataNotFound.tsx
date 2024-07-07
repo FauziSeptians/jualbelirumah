@@ -1,6 +1,6 @@
 export default function ErrorDataNotFound() {
   return (
-    <div className="w-full h-screen  flex  justify-center items-center text-center ">
+    <div className="flex h-screen w-full items-center justify-center text-center">
       <div>
         <div className="text-[120px] font-bold">404</div>
         <div className="text-[24px] font-semibold">

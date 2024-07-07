@@ -1,46 +1,53 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function CardLocationComponent({
-  Title,
-  Description,
-  Images,
+	Title,
+	Description,
+	Images,
+	ID,
 }: {
-  Title: string;
-  Description: string;
-  Images: string;
+	Title: string
+	Description: string
+	Images: string
+	ID: number
 }) {
-  const [Hover, setHover] = useState(false);
-  return (
-    <Link to={`/detail/${Title}`}>
-      <div
-        className="relative cursor-pointer md:w-full w-[400px]"
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-      >
-        <div className="">
-          <img className="w-[350px] md:w-full rounded-lg" src={Images}></img>
-        </div>
-        {Hover && (
-          <motion.div
-            className="bg-black w-full h-full absolute bottom-0 rounded-lg opacity-[0.6]"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "100%", opacity: 0.6 }}
-          ></motion.div>
-        )}
-        {Hover && (
-          <motion.div
-            className="absolute bottom-0 p-3 text-white flex flex-col "
-            initial={{ x: "10px", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            <div className="text-xs">{Title}</div>
-            <div className="opacity-[0.8] text-xs">{Description}</div>
-          </motion.div>
-        )}
-      </div>
-    </Link>
-  );
+	const [Hover, setHover] = useState(false)
+	return (
+		<Link to={`/detail/${ID}`} className="h-full w-full">
+			<div
+				className="relative h-[220px] w-[400px] cursor-pointer md:w-full"
+				onMouseEnter={() => setHover(true)}
+				onMouseLeave={() => setHover(false)}
+			>
+				<div className="h-full">
+					<img
+						className="h-full w-full rounded-lg object-cover"
+						src={Images}
+					></img>
+				</div>
+				{Hover && (
+					<motion.div
+						className="absolute bottom-0 h-[200px] w-[400px] rounded-lg bg-black opacity-[0.6] md:w-full"
+						initial={{ height: 0, opacity: 0 }}
+						animate={{ height: '100%', opacity: 0.6 }}
+					></motion.div>
+				)}
+				{Hover && (
+					<motion.div
+						className="absolute bottom-0 flex flex-col gap-1 p-3 text-white"
+						initial={{ y: '10px', opacity: 0 }}
+						animate={{ y: 0, opacity: 1 }}
+						transition={{ delay: 0.2 }}
+					>
+						<div className="text-xs font-semibold">{Title}</div>
+						<div className="line-clamp-2 text-xs opacity-[0.8]">
+							{Description}
+						</div>
+					</motion.div>
+				)}
+			</div>
+		</Link>
+	)
 }

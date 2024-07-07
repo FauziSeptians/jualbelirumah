@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 import { toGenerateRandomNumber } from '../utils/toGenerateRandomNumber'
 import { useMemo } from 'react'
 
-export function useDataPerumahanRecomendation() {
+export function useDataPerumahanRecomendationPopular() {
 	const { data, isLoading, isError } = useQuery(
 		'dataRecomendation',
 		() => dataPerumahan,
@@ -13,7 +13,7 @@ export function useDataPerumahanRecomendation() {
 	)
 
 	const randomNumber = useMemo(
-		() => toGenerateRandomNumber(3, 0, dataPerumahan.additionalData.length - 1),
+		() => toGenerateRandomNumber(4, 0, dataPerumahan.additionalData.length - 1),
 		[]
 	)
 

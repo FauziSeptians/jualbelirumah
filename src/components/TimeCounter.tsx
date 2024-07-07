@@ -28,9 +28,9 @@ export default function TimeCounter() {
   }, ${currentTime.toLocaleDateString()}`;
 
   return (
-    <div className="text-end p-4 text-white">
+    <div className="p-4 text-end text-white">
       <p className="text-lg">{formattedTime}</p>
-      <p className="text-xs opacity-50 tracking-wider">{formattedDate}</p>
+      <p className="text-xs tracking-wider opacity-50">{formattedDate}</p>
     </div>
   );
 }

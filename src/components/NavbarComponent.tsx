@@ -5,17 +5,17 @@ import TimeCounter from "./TimeCounter";
 
 export default function NavbarComponent({ Path }: { Path: string }) {
   return (
-    <div className=" w-full h-[70px] z-[1000] bg-primary">
-      <div className="w-full h-full flex items-center justify-between">
-        <div className="cursor-pointer ml-[20px] w-[12%] text-white">
+    <div className="z-[1000] flex h-[70px] w-full justify-center bg-primary">
+      <div className="mx-2 flex h-full w-full max-w-[1800px] items-center justify-between">
+        <div className="ml-[20px] w-[12%] cursor-pointer text-white">
           {TitleMenu}
         </div>
-        <section className="hidden lg:flex 2xl:hidden gap-9 text-sm items-center tracking-wider">
+        <section className="hidden items-center gap-9 text-sm tracking-wider lg:flex 2xl:hidden">
           {SectionMenu.map((item) => {
             if (item.Title === Path) {
               return (
                 <Link to={item.Url}>
-                  <div className="text-primary bg-secondary py-2 px-5 rounded-full cursor-pointer">
+                  <div className="cursor-pointer rounded-full bg-secondary px-5 py-2 text-primary">
                     {item.Title}
                   </div>
                 </Link>
@@ -23,7 +23,7 @@ export default function NavbarComponent({ Path }: { Path: string }) {
             } else {
               return (
                 <Link to={item.Url}>
-                  <div className="text-ternery cursor-pointer">
+                  <div className="cursor-pointer text-ternery">
                     {item.Title}
                   </div>
                 </Link>
@@ -31,7 +31,7 @@ export default function NavbarComponent({ Path }: { Path: string }) {
             }
           })}
         </section>
-        <div className="flex gap-5 items-center">
+        <div className="flex items-center gap-5">
           <TimeCounter />
           <SectionNavbarMobileComponent />
         </div>

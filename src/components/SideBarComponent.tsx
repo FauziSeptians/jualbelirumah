@@ -10,33 +10,33 @@ export default function SideBarComponent({ Path }: { Path: string }) {
 
   return (
     <motion.div
-      className="font-medium tracking-wide bg-neutral"
+      className="bg-neutral font-medium tracking-wide"
       initial={{ opacity: 0, x: "10px" }}
       animate={{ opacity: 1, x: "0px" }}
       transition={{ delay: 0.4 }}
     >
-      <div className="flex flex-col gap-6 mr-[20px]">
+      <div className="mr-[20px] flex flex-col gap-6">
         {SectionMenu.map((item) =>
           HoverKey == item.Title ? (
             <Link to={item.Url}>
               <div
                 key={item.Title}
-                className="cursor-pointer flex gap-2  py-2 items-center text-nowrap"
+                className="flex cursor-pointer items-center gap-2 text-nowrap py-2"
                 onMouseEnter={() => setHoverKey(item.Title)}
                 onMouseLeave={() => setHoverKey(Path)}
               >
-                <div className="relative w-[80px] h-[50px]">
+                <div className="relative h-[50px] w-[80px]">
                   <motion.div
-                    className="absolute px-[20px] bg-secondary rounded-r-[100px] w-full h-full py-3"
+                    className="absolute h-full w-full rounded-r-[100px] bg-secondary px-[20px] py-3"
                     initial={{ opacity: 0, width: 0 }}
                     animate={{ opacity: 1, width: "100%" }}
                     transition={{ type: spring }}
                   ></motion.div>
-                  <div className="absolute top-[25%] left-[22px] text-primary">
+                  <div className="absolute left-[22px] top-[25%] text-primary">
                     {item.Icon}
                   </div>
                 </div>
-                <div className="text-sm text-primary font-medium">
+                <div className="text-sm font-medium text-primary">
                   {item.Title}
                 </div>
               </div>
@@ -44,18 +44,18 @@ export default function SideBarComponent({ Path }: { Path: string }) {
           ) : (
             <div
               key={item.Title}
-              className="cursor-pointer flex gap-2 py-2 items-center text-nowrap"
+              className="flex cursor-pointer items-center gap-2 text-nowrap py-2"
               onMouseEnter={() => setHoverKey(item.Title)}
               onMouseLeave={() => setHoverKey(Path)}
             >
-              <div className="relative w-[80px] h-[50px]">
-                <div className="absolute top-[25%] left-[22px] text-ternery">
+              <div className="relative h-[50px] w-[80px]">
+                <div className="absolute left-[22px] top-[25%] text-ternery">
                   {item.Icon}
                 </div>
               </div>
               <div className="text-sm text-ternery">{item.Title}</div>
             </div>
-          )
+          ),
         )}
       </div>
     </motion.div>

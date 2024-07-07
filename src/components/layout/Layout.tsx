@@ -49,26 +49,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         />
       )}
       {PopupModalMobile ? (
-        <div className="fixed w-full h-screen z-[1000] flex justify-center items-center">
+        <div className="fixed z-[1000] flex h-screen w-full items-center justify-center bg-neutral">
           <div className="">
             {SectionMenu.map((item) =>
               HoverKey == item.Title ? (
                 <Link to={item.Url}>
                   <div
                     key={item.Title}
-                    className="cursor-pointer flex gap-2  py-2 items-center "
+                    className="flex cursor-pointer items-center gap-2 py-2 text-primary"
                     onMouseEnter={() => setHoverKey(item.Title)}
                     onMouseLeave={() => setHoverKey(Path)}
                     onClick={() => setPopupModal(false)}
                   >
-                    <div className="relative w-[80px] h-[50px]">
+                    <div className="relative h-[50px] w-[80px]">
                       <motion.div
-                        className="absolute px-[20px] secondaryColor rounded-r-[100px] w-full h-full  py-3"
+                        className="absolute h-full w-full rounded-r-[100px] bg-secondary px-[20px] py-3"
                         initial={{ opacity: 0, width: 0 }}
                         animate={{ opacity: 1, width: "100%" }}
                         transition={{ type: "spring" }}
                       ></motion.div>
-                      <div className="absolute top-[25%] left-[22px]">
+                      <div className="absolute left-[22px] top-[25%]">
                         {/* <img src={item.Icon} width={22}></img> */}
                         {item.Icon}
                       </div>
@@ -79,26 +79,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               ) : (
                 <div
                   key={item.Title}
-                  className="cursor-pointer flex gap-2 py-2 items-center"
+                  className="flex cursor-pointer items-center gap-2 py-2 text-ternery"
                   onMouseEnter={() => setHoverKey(item.Title)}
                   onMouseLeave={() => setHoverKey(Path)}
                 >
-                  <div className="relative w-[80px] h-[50px] ">
-                    <div className="absolute top-[25%] left-[22px]">
+                  <div className="relative h-[50px] w-[80px]">
+                    <div className="absolute left-[22px] top-[25%]">
                       {/* <img src={item.Icon} width={22}></img> */}
                       {item.Icon}
                     </div>
                   </div>
                   <div className="">{item.Title}</div>
                 </div>
-              )
+              ),
             )}
           </div>
         </div>
       ) : null}
       <NavbarComponent Path={Path} />
       <div className="flex w-full">
-        <div className="2xl:flex hidden min-w-48 pt-8">
+        <div className="hidden min-w-48 pt-8 2xl:flex">
           <SideBarComponent Path={Path} />
         </div>
         <motion.div
