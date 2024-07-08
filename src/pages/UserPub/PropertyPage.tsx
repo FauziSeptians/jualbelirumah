@@ -1,21 +1,21 @@
 import { Pagination } from '@nextui-org/react'
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import CardComponent from '../../components/CardComponent'
 import ErrorDataNotFound from '../../components/ErrorDataNotFound'
-import SearchMobileComponent from '../../components/SearchMobileComponent'
 import useDataSearch from '../../hooks/useDataSearch'
 import DetailPage from './DetailPage'
 import usePagination from '../../hooks/usePagination'
 import { dataPerumahanType } from '../../types/CardTypes'
+import { dataFilteringSegmentation } from '../../data/dummy/dataFilteringSegmentation'
 
 export default function PropertyPage() {
 	const [clickedDetail, setclickedDetail] = useState('')
 	const [searchParams, setSearchParams] = useSearchParams()
 	const [page, setPage] = useState(0)
+	const [segmentationFilter, setSegmentationFilter] = useState('')
 	const [totalPage, setTotalPage] = useState(0)
-	const [showData, setShowData] = useState<any>()
 	const keyValue = searchParams.get('search')
 	const isMobile =
 		/Iphone|iPad|iPod|Android|Opera Mini|Blackberry|webOS|Windows Phone|Samsung|HTC|Micromax|Motorola|诺基亚|索尼|华为|小米|魅族|OPPO|VIVO/i.test(
@@ -25,12 +25,14 @@ export default function PropertyPage() {
 	const { dataSearch, datapages } = useDataSearch(keyValue)
 
 	const { data, pages } = usePagination(page)
+	const [showData, setShowData] = useState<any>(data)
+	const navigate = useNavigate()
 
 	useEffect(() => {
 		console.log(page)
 		searchParams.set('page', page.toString())
 		setSearchParams(searchParams)
-	}, [page])
+	}, [page, searchParams, setSearchParams])
 
 	useEffect(() => {
 		console.log('test')
@@ -46,7 +48,15 @@ export default function PropertyPage() {
 		console.log('test2')
 		setShowData(data)
 		setTotalPage(pages)
-	}, [data, dataSearch])
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [searchParams, dataSearch])
+
+	function handleSearchSubmit(event: React.KeyboardEvent<HTMLInputElement>) {
+		if (event.key === 'Enter') {
+			console.log(event.currentTarget.value)
+			navigate('/Property?search=' + event.currentTarget.value)
+		}
+	}
 
 	console.log(pages)
 	console.log(page)
@@ -66,16 +76,58 @@ export default function PropertyPage() {
 					clickedDetail ? 'w-[50%]' : 'w-full'
 				}`}
 			>
-				<div className="mb-10 bg-neutral">
-					<SearchMobileComponent />
+				<div className="mb-6 flex max-w-md border-spacing-1 items-center gap-3 rounded-md border bg-slate-200 p-2">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						strokeWidth={1.5}
+						stroke="currentColor"
+						className="size-6"
+					>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+						/>
+					</svg>
+					<input
+						type="text"
+						placeholder="Cari property"
+						className="w-full max-w-md appearance-none border-none bg-slate-200 text-xs outline-none focus:outline-none"
+						onKeyDown={handleSearchSubmit}
+					/>
+				</div>
+				<div className="mb-6 flex w-full items-center gap-2 overflow-auto text-center text-sm sm:hidden">
+					{dataFilteringSegmentation.map((item) => {
+						if (item === segmentationFilter) {
+							return (
+								<div
+									className="!w-[200px] cursor-pointer text-nowrap rounded-full bg-primary px-6 py-2 text-neutral"
+									onClick={() => setSegmentationFilter(item)}
+								>
+									{item}
+								</div>
+							)
+						} else {
+							return (
+								<div
+									className="!w-[200px] cursor-pointer text-nowrap rounded-full border border-slate-200 px-6 py-2 text-primary"
+									onClick={() => setSegmentationFilter(item)}
+								>
+									{item}
+								</div>
+							)
+						}
+					})}
 				</div>
 				{keyValue ? (
 					<div className="mb-8 flex w-full items-center justify-between">
 						<div>
-							<div className="text-md font-semibold">{keyValue}</div>
+							<div className="text-sm font-semibold">{keyValue}</div>
 							<div className="text-sm">{showData?.length} data</div>
 						</div>
-						<div>Sort by</div>
+						<div className="text-sm">Sort by</div>
 					</div>
 				) : null}
 				<div
