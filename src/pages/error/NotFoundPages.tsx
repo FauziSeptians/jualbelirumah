@@ -8,17 +8,17 @@ export default function NotFoundPages() {
   };
   return (
     <div className="flex h-screen w-full items-center justify-center text-center">
-      <div>
-        <div className="text-[120px] font-bold">404</div>
-        <div className="text-[24px] font-semibold">
+      <div className="bg-red-200">
+        <div className="text-lg font-bold">404</div>
+        <div className="text-sm font-semibold">
           Ooops! Pages Not Found !!
         </div>
         <div className="mt-3 flex flex-col gap-3">
-          <div className="tracking-widest">
+          <div className="tracking-widest text-sm">
             Sorry, the pages you're looking does not exist.
           </div>
           <button onClick={handleBack}>
-            <div className="underline">Back to Previous</div>
+            <div className="underline text-sm">Back to Previous</div>
           </button>
         </div>
       </div>

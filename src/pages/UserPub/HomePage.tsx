@@ -18,6 +18,7 @@ import { dataPerumahanType, ServicesType } from '../../types/CardTypes'
 import React from 'react'
 import { ImagesSlider } from '../../components/ui/images-slider'
 import { TextGenerateEffect } from '../../components/ui/text-generate-effect'
+import { InfiniteMovingCards } from '../../components/ui/infinite-moving-cards'
 
 export default function HomePage() {
 	const [selectedsectionMenus, setSectionMenu] = useState(sectionMenu[0])
@@ -56,10 +57,11 @@ export default function HomePage() {
 
 	const words = `Prestasi Property`
 
+
 	return (
 		<section className="flex h-full w-full">
 			<section
-				className="custom-scrollbar flex h-[820px] w-full flex-col gap-[60px] overflow-y-auto px-4 md:px-5"
+				className="custom-scrollbar flex h-[820px] w-full flex-col gap-[60px] overflow-y-auto overflow-x-hidden px-4 md:px-5"
 				id="scroll"
 			>
 				<section id="section-top" className="flex flex-col gap-6">
@@ -338,18 +340,23 @@ export default function HomePage() {
 						</div>
 					</div>
 					<div className="flex w-full justify-center">
-						<div className="grid grid-cols-2 gap-6 sm:grid-cols-3">
-							{data?.additionalData.map((item) => {
-								return (
-									<img
-										src={item}
-										className="h-[220px] w-[220px] cursor-pointer rounded-md object-cover hover:scale-105"
-									></img>
-								)
-							})}
+						<div className="flex w-full h-full flex-col items-center justify-center rounded-md bg-white antialiased">
+							<InfiniteMovingCards direction="right" speed="slow">
+								{data?.additionalData.map((item) => {
+									return (
+										<div className='h-[220px] w-[420px]'>
+											<img
+												src={item}
+												className="h-full w-full cursor-pointer rounded-md object-cover hover:scale-105"
+											></img>
+										</div>
+									)
+								})}
+							</InfiniteMovingCards>
 						</div>
 					</div>
 				</section>
+
 				<section className="flex flex-col gap-6">
 					<div className="flex w-full justify-between">
 						<div>

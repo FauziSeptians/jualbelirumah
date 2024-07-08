@@ -9,17 +9,17 @@ export default function ErrorsPages() {
   return (
     <div className="flex h-screen w-full items-center justify-center text-center">
       <div>
-        <div className="text-[120px] font-bold">500</div>
-        <div className="text-[24px] font-semibold">
+        <div className="text-lg font-bold">500</div>
+        <div className="text-sm font-semibold">
           Ooops! Something went wrong !!
         </div>
         <div className="mt-3 flex flex-col gap-3">
-          <div className="tracking-widest">
+          <div className="tracking-widest text-sm">
             Sorry, we're not exactly sure what happend, but something went
             wrong.
           </div>
           <button onClick={handleBack}>
-            <div className="underline">Back to Previous</div>
+            <div className="underline text-sm">Back to Previous</div>
           </button>
         </div>
       </div>
