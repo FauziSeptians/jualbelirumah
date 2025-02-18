@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query'
-import { dataGalleryPict } from '../data/dummy/dataGalleryPict'
+import  dataGalleryPict  from "../data/dataGalleryPict.json"
 
 export function useDataGallery() {
 	return useQuery('data', () => dataGalleryPict, {

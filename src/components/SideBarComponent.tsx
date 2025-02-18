@@ -1,7 +1,7 @@
 import { motion, spring } from "framer-motion";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { SectionMenu } from "../data/constant/NavbarMenu";
+import { SectionMenu } from "../data/navbarMenu";
 
 export default function SideBarComponent({ Path }: { Path: string }) {
   const [HoverKey, setHoverKey] = useState(Path);

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { SectionMenu } from '../data/constant/NavbarMenu'
+import { SectionMenu } from '../data/navbarMenu'
 
 export default function FooterComponent() {
 	return (

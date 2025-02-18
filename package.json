@@ -21,6 +21,7 @@
 		"framer-motion": "^11.2.13",
 		"husky": "^9.0.11",
 		"jotai": "^2.8.0",
+		"jualbelirumah": "file:",
 		"lint-staged": "^15.2.7",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",

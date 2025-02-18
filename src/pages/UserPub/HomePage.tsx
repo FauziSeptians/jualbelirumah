@@ -5,9 +5,8 @@ import CardLocationComponent from '../../components/CardLocationComponent'
 import CardPopularComponent from '../../components/CardPopularComponent'
 import MiniCardPopularComponent from '../../components/MiniCardPopularComponent'
 import SectionMenuComponent from '../../components/SectionMenuComponent'
-import { Filterprice, sectionMenu } from '../../data/constant/SectionMenu'
 import { useDataPerumahanRecomendation } from '../../hooks/useDataPerumahanRecomendation'
-import { ourServices } from '../../data/dummy/ourServices'
+import { ourServices } from '../../data/ourServices'
 import { motion } from 'framer-motion'
 import { useDataGallery } from '../../hooks/useDataGallery'
 import { useNavigate } from 'react-router-dom'
@@ -19,11 +18,16 @@ import React from 'react'
 import { ImagesSlider } from '../../components/ui/images-slider'
 import { TextGenerateEffect } from '../../components/ui/text-generate-effect'
 import { InfiniteMovingCards } from '../../components/ui/infinite-moving-cards'
+import image from "../../data/image.json"
+import sectionMenu from "../../data/sectionMenu.json"
+import filterPrice from "../../data/filterPrice.json"
+
+
+const WORDS_HEADER = `Prestasi Property`
 
 export default function HomePage() {
 	const [selectedsectionMenus, setSectionMenu] = useState(sectionMenu[0])
-	// const [selectedFilterPrice, setFilterPrice] = useState(Filterprice[0])
-	const [selectedFilterPrice1, setFilterPrice1] = useState(Filterprice[0])
+	const [selectedFilterPrice1, setFilterPrice1] = useState(filterPrice[0])
 	const { data: dataRecomendation, isLoading } = useDataPerumahanRecomendation()
 	const { data: dataRecomendationForUser } =
 		useDataPerumahanRecomendationForUser()
@@ -46,18 +50,6 @@ export default function HomePage() {
 
 	console.log(dataRecomendationByCity)
 
-	const images = [
-		'https://www.wallpaperuse.com/wallp/0-9852_m.jpg',
-		'https://www.wallpaperuse.com/wallp/59-593288_m.jpg',
-		'https://images.squarespace-cdn.com/content/v1/5009c8cbe4b0d820d6a076ff/1404943043797-PZ307IKLRCDIYBA2ZDFY/modern-new-office-building-1920x1080.jpg?format=2500w',
-		'https://www.casafari.com/wp-content/uploads/2023/04/How-to-manage-your-property-portfolio-scaled.jpg',
-		'https://cdn.thepropertyagent.casa/wp-content/uploads/2022/05/costa-del-sol-property-price-boom-2022-statistics.jpg',
-		'https://bedayainvestment.com/vendor/img/carousel/3.jpg',
-	]
-
-	const words = `Prestasi Property`
-
-
 	return (
 		<section className="flex h-full w-full">
 			<section
@@ -66,17 +58,11 @@ export default function HomePage() {
 			>
 				<section id="section-top" className="flex flex-col gap-6">
 					<section className="relative h-fit sm:h-[400px]">
-						{/* <img
-							src="https://www.wallpaperuse.com/wallp/59-593288_m.jpg"
-							className={`${
-								isInputSearchSelected ? 'sm:blur-[1px]' : ''
-							} "object-cover rounded-md sm:h-full sm:w-full`}
-						></img> */}
 						<ImagesSlider
 							className={`${
 								isInputSearchSelected ? 'sm:blur-[1px]' : ''
 							} "object-cover rounded-md sm:h-full sm:w-full`}
-							images={images}
+							images={ image}
 						>
 							<motion.div
 								initial={{
@@ -131,7 +117,7 @@ export default function HomePage() {
 							</div>
 						</div>
 						<div className="absolute left-1/2 top-1/2 flex w-full -translate-x-1/2 -translate-y-1/2 transform justify-center px-5 sm:hidden">
-							<TextGenerateEffect words={words} />
+							<TextGenerateEffect words={WORDS_HEADER } />
 						</div>
 					</section>
 					<div className="flex border-spacing-1 items-center gap-3 rounded-md border bg-slate-200 p-2 sm:hidden">
@@ -188,53 +174,11 @@ export default function HomePage() {
 						})}
 					</div>
 				</section>
-
-				{/* <section id="section-location1" className="flex flex-col gap-6">
-					<div className="flex flex-col gap-3">
-						<div className="text-md font-semibold">Bandung</div>
-						<div className="flex gap-6 opacity-[0.6]">
-							{Filterprice.map((item) =>
-								selectedFilterPrice == item ? (
-									<SectionMenuComponent
-										Text={item}
-										boolHovered={true}
-										setHoverText={(val) => setFilterPrice(val)}
-										defaultText={selectedFilterPrice}
-									/>
-								) : (
-									<SectionMenuComponent
-										Text={item}
-										boolHovered={false}
-										setHoverText={(val) => setFilterPrice(val)}
-										defaultText={selectedFilterPrice}
-									/>
-								)
-							)}
-						</div>
-					</div>
-					<div className="custom-scrollbar flex w-full flex-row gap-3 overflow-x-auto pb-8 md:w-full">
-						<CardLocationComponent
-							Title={'Rumah dijual di Bandung'}
-							Description="lorem ipsiuna wdao ok oawdkawodkw oakdosldw aokod ka"
-							Images="https://arsitagx-master.s3.ap-southeast-1.amazonaws.com/img-medium/25110/26365/studio-lembar-putih-proyek-desain-rumah-kos-bapak-hd1666854479-m.jpeg"
-						/>
-						<CardLocationComponent
-							Title={'Rumah dijual di Bandung'}
-							Description="lorem ipsiuna wdao ok oawdkawodkw oakdosldw aokod ka"
-							Images="https://arsitagx-master.s3.ap-southeast-1.amazonaws.com/img-medium/25110/26365/studio-lembar-putih-proyek-desain-rumah-kos-bapak-hd1666854479-m.jpeg"
-						/>
-						<CardLocationComponent
-							Title={'Rumah dijual di Bandung'}
-							Description="lorem ipsiuna wdao ok oawdkawodkw oakdosldw aokod ka"
-							Images="https://arsitagx-master.s3.ap-southeast-1.amazonaws.com/img-medium/25110/26365/studio-lembar-putih-proyek-desain-rumah-kos-bapak-hd1666854479-m.jpeg"
-						/>
-					</div>
-				</section> */}
 				<section id="section-location1" className="flex flex-col gap-6">
 					<div className="flex flex-col gap-3">
 						<div className="text-md font-semibold">Padalarang</div>
 						<div className="flex gap-6 opacity-[0.6]">
-							{Filterprice?.map((item: string) =>
+							{filterPrice?.map((item: string) =>
 								selectedFilterPrice1 == item ? (
 									<SectionMenuComponent
 										Text={item}
@@ -273,11 +217,6 @@ export default function HomePage() {
 						</div>
 					</div>
 				</section>
-				{/* <section>
-					<div className="flex w-full items-center justify-center">
-						<ButtonComponent Text="Show More.." LinkURL="/property" />
-					</div>
-				</section> */}
 				<section id="Banners">
 					<div className="flex h-[200px] w-full items-center justify-center bg-green-300">
 						<img

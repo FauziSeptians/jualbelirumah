@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { SectionMenu } from "../../data/constant/NavbarMenu";
+import { SectionMenu } from "../../data/navbarMenu";
 import {
   IdxModalAllImage,
   modalAllImageStore,
