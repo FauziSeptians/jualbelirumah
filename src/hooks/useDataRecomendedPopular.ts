@@ -1,4 +1,4 @@
-import { dataPerumahan } from '../data/dummy/dataPerumahanDummy'
+import dataPerumahan from '../data/dataPerumahanDummy.json'
 import { useQuery } from 'react-query'
 import { toGenerateRandomNumber } from '../utils/toGenerateRandomNumber'
 import { useMemo } from 'react'

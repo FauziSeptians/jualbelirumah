@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { kataSemangat } from '../data/dummy/PositiveWord'
+import kataSemangat  from '../data/positiveWord.json'
 
 export default function PositiveWordComponent() {
 	const [currentIndex, setCurrentIndex] = useState(0)

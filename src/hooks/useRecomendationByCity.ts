@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { dataPerumahan } from '../data/dummy/dataPerumahanDummy'
+import  dataPerumahan  from '../data/dataPerumahanDummy.json'
 
 function getTop3LowestPrices(products: any) {
 	console.log(products)

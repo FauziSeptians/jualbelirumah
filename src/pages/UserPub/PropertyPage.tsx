@@ -8,7 +8,7 @@ import useDataSearch from '../../hooks/useDataSearch'
 import DetailPage from './DetailPage'
 import usePagination from '../../hooks/usePagination'
 import { dataPerumahanType } from '../../types/CardTypes'
-import { dataFilteringSegmentation } from '../../data/dummy/dataFilteringSegmentation'
+import dataFilteringSegmentation from '../../data/dataFilteringSegmentation.json'
 
 export default function PropertyPage() {
 	const [clickedDetail, setclickedDetail] = useState('')

@@ -9,7 +9,7 @@ import {
 } from '../../store/modalImagesStore'
 import { toRupiah } from '../../utils/toRupiah'
 import { useState } from 'react'
-import { dataSegment } from '../../data/dummy/dataSegmentDetail'
+import  dataSegment  from '../../data/dataSegmentDetail.json'
 
 export default function DetailPage({
 	ClickedProperty,
