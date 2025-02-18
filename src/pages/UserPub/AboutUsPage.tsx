@@ -1,4 +1,4 @@
-import { ourServices } from '../../data/dummy/ourServices'
+import { ourServices } from '../../data/ourServices'
 import { useDataGallery } from '../../hooks/useDataGallery'
 
 export default function AboutUsPage() {

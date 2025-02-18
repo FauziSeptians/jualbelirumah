@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { SectionMenu, TitleMenu } from '../data/constant/NavbarMenu'
+import { SectionMenu, TitleMenu } from '../data/navbarMenu'
 import { SectionNavbarMobileComponent } from './SectionNavbarMobileComponent'
 import TimeCounter from './TimeCounter'
 
