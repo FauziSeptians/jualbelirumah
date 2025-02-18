@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { dataPerumahan } from '../data/dummy/dataPerumahanDummy'
+import dataPerumahan  from '../data/dataPerumahanDummy.json'
 
 export default function useDataSearch(search: string | null) {
 	const [data, setData] = useState<any>([])

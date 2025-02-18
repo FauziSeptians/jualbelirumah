@@ -1,4 +1,4 @@
-import { dataPerumahan } from '../data/dummy/dataPerumahanDummy'
+import dataPerumahan from '../data/dataPerumahanDummy.json'
 
 export default function usePagination(page: number) {
 	const initialIdx = page * 12

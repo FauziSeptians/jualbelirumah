@@ -1,4 +1,4 @@
-import { dataPerumahan } from "../data/dummy/dataPerumahanDummy";
+import dataPerumahan  from "../data/dataPerumahanDummy.json";
 
 export function useDataDetail(Id: number) {
   const DataDetail = dataPerumahan.additionalData.filter(
