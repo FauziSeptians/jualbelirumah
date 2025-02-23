@@ -91,14 +91,14 @@ export default function CardComponent({
 								Rumah
 							</div>
 						</div>
-						<div className="mt-3">
-							<div className="line-clamp-1 text-sm">{data.Title}</div>
-							<div className="flex flex-col gap-6 text-xs opacity-[0.6]">
-								<div className="flex gap-3">
-									<div>
-										<img src="/placeholder.png" width={14}></img>
+						<div className="mt-3 flex flex-col gap-1">
+							<div className="line-clamp-1">{data.Title}</div>
+							<div className="flex flex-col gap-6 text-sm opacity-[0.6]">
+								<div className="flex w-full items-center gap-3">
+									<div className="w-[20px]">
+										<img src="/placeholder.png" width={20} height={20}></img>
 									</div>
-									<div className="line-clamp-1">{data.Location}</div>
+									<div className="line-clamp-1 w-5/6">{data.Location}</div>
 								</div>
 							</div>
 						</div>
@@ -169,14 +169,14 @@ export default function CardComponent({
 							)}
 						</div>
 					</div>
-					<div className="mt-3">
-						<div className="text-sm">{data.Title}</div>
-						<div className="flex flex-col gap-6 text-sm opacity-[0.6]">
-							<div className="flex gap-3">
-								<div>
-									<img src="/placeholder.png" width={22}></img>
+					<div className="mt-3 w-full flex flex-col gap-1">
+						<div>{data.Title}</div>
+						<div className="flex w-full flex-col items-center gap-6 text-sm opacity-[0.6]">
+							<div className="flex w-full gap-3 items-center">
+								<div className="w-[20px]">
+									<img src="/placeholder.png" width={20} height={20}></img>
 								</div>
-								<div>{data.Location}</div>
+								<div className="line-clamp-1 w-5/6">{data.Location}</div>
 							</div>
 						</div>
 					</div>

@@ -10,7 +10,7 @@ export default function CardPopularComponent({
   data: dataPerumahanType;
 }) {
   return (
-    <Link to={`/detail/${data.Id}`}>
+    <Link to={`/detail/${data.Id}`} className="w-full">
       <motion.div className="w-full">
         <div className="h-[300px]">
           <img

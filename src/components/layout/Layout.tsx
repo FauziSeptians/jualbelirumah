@@ -38,7 +38,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [HoverKey, setHoverKey] = useState(Path);
 
   return (
-    <div className="bg-neutral">
+    <div className="bg-neutral w-full h-screen">
       {ModalImages.length != 0 && (
         <ModalsImagesComponent Images={ModalImages} />
       )}
@@ -97,12 +97,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       ) : null}
       <NavbarComponent Path={Path} />
-      <div className="flex w-full">
+      <div className="flex w-full h-full">
         <div className="hidden min-w-48 pt-8 2xl:flex">
           <SideBarComponent Path={Path} />
         </div>
         <motion.div
-          className="w-full pt-8"
+          className="w-full pt-8 h-full"
           initial={{ opacity: 0, y: "100px" }}
           animate={{ opacity: 1, y: "0px" }}
           transition={{ delay: 0.6 }}
@@ -111,7 +111,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {children}
         </motion.div>
       </div>
-      <div className="mt-6">
+      <div className="mt-6 bg-red-300">
         <FooterComponent />
       </div>
     </div>

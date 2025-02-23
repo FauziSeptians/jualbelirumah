@@ -3,30 +3,34 @@ import { useQuery } from 'react-query'
 import { toGenerateRandomNumber } from '../utils/toGenerateRandomNumber'
 import { useMemo } from 'react'
 
-export function useDataPerumahanRecomendationPopular() {
-	const { data, isLoading, isError } = useQuery(
-		'dataRecomendation',
-		() => dataPerumahan,
-		{
-			cacheTime: 60000, // Contoh: cache berlaku selama 60 detik
-		}
-	)
+function filterDataRumah(filter: string, data: any, randomNumber: any) {
+  if (filter === "Recomended") {
+    return randomNumber.map((item: any) => data.additionalData[item]);
+  }
+  return data.additionalData?.sort((a: any, b: any) => b.Price - a.Price);
+}
 
-	const randomNumber = useMemo(
-		() => toGenerateRandomNumber(4, 0, dataPerumahan.additionalData.length - 1),
-		[]
-	)
+export function useDataPerumahanRecomendationPopular({
+  filter = "Recomended"
+}: { filter: string }) {
+  const { data, isLoading, isError } = useQuery(
+    ['dataRecomendation', filter], 
+    () => dataPerumahan,
+  )
 
-	const dataFilter = useMemo(() => {
-		if (!data) return []
-		return randomNumber.map((item) => data.additionalData[item])
-	}, [data, randomNumber])
+  const randomNumber = useMemo(
+    () => toGenerateRandomNumber(4, 0, dataPerumahan.additionalData.length - 1),
+    [filter]  
+  )
 
-	console.log(dataFilter)
+  const dataFilter = useMemo(() => {
+    if (!data) return []
+    return filterDataRumah(filter, data, randomNumber);
+  }, [data, randomNumber, filter]) 
 
-	return {
-		data: dataFilter,
-		isLoading: isLoading,
-		isError: isError,
-	}
+  return {
+    data: dataFilter ?? [],
+    isLoading,
+    isError,
+  }
 }

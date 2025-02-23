@@ -6,8 +6,6 @@ import { SectionMenu } from "../data/navbarMenu";
 export default function SideBarComponent({ Path }: { Path: string }) {
   const [HoverKey, setHoverKey] = useState(Path);
 
-  console.log(HoverKey);
-
   return (
     <motion.div
       className="bg-neutral font-medium tracking-wide"

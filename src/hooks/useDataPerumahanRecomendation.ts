@@ -22,7 +22,6 @@ export function useDataPerumahanRecomendation() {
 		return randomNumber.map((item) => data.additionalData[item])
 	}, [data, randomNumber])
 
-	console.log(dataFilter)
 
 	return {
 		data: dataFilter,
