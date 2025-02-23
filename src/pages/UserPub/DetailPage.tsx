@@ -46,7 +46,7 @@ export default function DetailPage({
 	return (
 		<section
 			className={`flex w-full flex-col gap-10 p-5 ${
-				ClickedProperty ? 'h-[820px] overflow-y-scroll' : null
+				ClickedProperty ? 'h-[820px] overflow-y-scroll' : ""
 			}`}
 		>
 			<motion.section
@@ -134,6 +134,7 @@ export default function DetailPage({
 					} else {
 						return (
 							<div
+								key={item}
 								className="!w-[200px] cursor-pointer rounded-full border border-slate-200 px-6 py-2 text-primary"
 								onClick={() => setSegmentDetail(item)}
 							>

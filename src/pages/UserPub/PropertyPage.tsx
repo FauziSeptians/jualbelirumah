@@ -123,7 +123,10 @@ export default function PropertyPage() {
 					{showData?.length != 0 &&
 						showData?.map((item: dataPerumahanType) => {
 							return (
-								<div onClick={() => setclickedDetail(item.Id.toString())} key={item?.Id}>
+								<div
+									onClick={() => setclickedDetail(item.Id.toString())}
+									key={item?.Id}
+								>
 									<CardComponent
 										key={item.Id}
 										data={item}
@@ -146,14 +149,14 @@ export default function PropertyPage() {
 							total={totalPage}
 							initialPage={page + 1}
 							onChange={(val) => setPage(() => val - 1)}
-							color='primary'
+							color="primary"
 						/>
 					</div>
 				) : null}
 			</div>
 
 			{isMobile == false && clickedDetail && (
-				<div className="relative w-[50%]">
+				<div className="h-full w-[50%]">
 					<motion.div
 						animate={{ x: '0px', opacity: 1 }}
 						initial={{ x: '100px', opacity: 0 }}

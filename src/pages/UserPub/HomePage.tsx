@@ -48,7 +48,7 @@ export default function HomePage() {
 	return (
 		<section className="flex h-full w-full">
 			<section
-				className="custom-scrollbar flex h-[820px] w-[70%] flex-1 flex-col gap-[60px] overflow-y-auto overflow-x-hidden px-4 md:px-5"
+				className="custom-scrollbar flex h-[820px] w-[72%] flex-1 flex-col gap-[60px] overflow-y-auto overflow-x-hidden px-4 md:px-5"
 				id="scroll"
 			>
 				<section id="section-top" className="flex flex-col gap-6">
@@ -339,7 +339,7 @@ export default function HomePage() {
 					</div>
 				</section>
 			</section>
-			<motion.section className="hidden h-full w-[30%] flex-none flex-col gap-6 border-l-2 border-[#13353d04] p-5 2xl:flex">
+			<motion.section className="hidden h-full w-[28%] flex-none flex-col gap-6 border-l-2 border-[#13353d04] p-5 2xl:flex">
 				{!isLoading && dataRecomendation ? (
 					<>
 						<div className="w-full">
