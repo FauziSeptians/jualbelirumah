@@ -3,17 +3,12 @@ import { motion } from 'framer-motion'
 export default function SectionMenuComponent({
 	Text,
 	setHoverText,
-	boolHovered,
-	defaultText,
+	boolHovered
 }: {
 	Text: string
 	setHoverText: (text: string) => void
 	boolHovered: boolean
-	defaultText: string
 }) {
-	console.log(Text)
-	console.log(boolHovered)
-	console.log(defaultText)
 	return (
 		<div
 			className="flex cursor-pointer flex-col gap-2"

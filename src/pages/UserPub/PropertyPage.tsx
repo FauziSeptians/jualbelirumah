@@ -12,58 +12,41 @@ import dataFilteringSegmentation from '../../data/dataFilteringSegmentation.json
 
 export default function PropertyPage() {
 	const [clickedDetail, setclickedDetail] = useState('')
-	const [searchParams, setSearchParams] = useSearchParams()
 	const [page, setPage] = useState(0)
 	const [segmentationFilter, setSegmentationFilter] = useState('')
 	const [totalPage, setTotalPage] = useState(0)
+	const [searchParams, setSearchParams] = useSearchParams()
 	const keyValue = searchParams.get('search')
 	const isMobile =
 		/Iphone|iPad|iPod|Android|Opera Mini|Blackberry|webOS|Windows Phone|Samsung|HTC|Micromax|Motorola|诺基亚|索尼|华为|小米|魅族|OPPO|VIVO/i.test(
 			navigator.userAgent
 		)
-
 	const { dataSearch, datapages } = useDataSearch(keyValue)
-
 	const { data, pages } = usePagination(page)
 	const [showData, setShowData] = useState<any>(data)
 	const navigate = useNavigate()
 
+	function handleSearchSubmit(event: React.KeyboardEvent<HTMLInputElement>) {
+		if (event.key === 'Enter') {
+			navigate('/Property?search=' + event.currentTarget.value)
+		}
+	}
+
 	useEffect(() => {
-		console.log(page)
 		searchParams.set('page', page.toString())
 		setSearchParams(searchParams)
 	}, [page, searchParams, setSearchParams])
 
 	useEffect(() => {
-		console.log('test')
-		console.log(keyValue)
-		console.log(data)
-		console.log(dataSearch)
 		if (dataSearch) {
-			console.log('test1')
 			setShowData(dataSearch)
 			setTotalPage(datapages)
 			return
 		}
-		console.log('test2')
 		setShowData(data)
 		setTotalPage(pages)
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [searchParams, dataSearch])
-
-	function handleSearchSubmit(event: React.KeyboardEvent<HTMLInputElement>) {
-		if (event.key === 'Enter') {
-			console.log(event.currentTarget.value)
-			navigate('/Property?search=' + event.currentTarget.value)
-		}
-	}
-
-	console.log(pages)
-	console.log(page)
-
-	console.log(data)
-	console.log(showData)
-	console.log(totalPage)
 
 	return (
 		<div
@@ -140,7 +123,7 @@ export default function PropertyPage() {
 					{showData?.length != 0 &&
 						showData?.map((item: dataPerumahanType) => {
 							return (
-								<div onClick={() => setclickedDetail(item.Id.toString())}>
+								<div onClick={() => setclickedDetail(item.Id.toString())} key={item?.Id}>
 									<CardComponent
 										key={item.Id}
 										data={item}
@@ -163,6 +146,7 @@ export default function PropertyPage() {
 							total={totalPage}
 							initialPage={page + 1}
 							onChange={(val) => setPage(() => val - 1)}
+							color='primary'
 						/>
 					</div>
 				) : null}
@@ -182,7 +166,7 @@ export default function PropertyPage() {
 						className="absolute right-[2%] top-[2%] cursor-pointer"
 						onClick={() => setclickedDetail('')}
 					>
-						<div className="flex h-[50px] w-[50px] items-center justify-center rounded-[25px] bg-primary text-center font-semibold">
+						<div className="flex h-[50px] w-[50px] items-center justify-center rounded-[25px] bg-primary text-center font-semibold text-white">
 							X
 						</div>
 					</div>

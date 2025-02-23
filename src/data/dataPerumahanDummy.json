@@ -3,8 +3,7 @@
   "statusCode": 200,
   "TotalData": 3,
   "pages": 1,
-  "additionalData": [
-    {
+  "additionalData": [{
       "Id": 1201219210,
       "Title": "Rumah Siap Huni Promo DP 7 Juta-an All in di Padalarang",
       "Location": "Padalarang",
@@ -419,6 +418,79 @@
         "AreaSurface": "50",
         "Bathroom": "2",
         "Bedroom": "3",
+        "Electricity": "1300"
+      },
+      "Agent": {
+        "Name": "Cecep Trisna",
+        "Role": "Agent",
+        "MessageNo": "087722282016",
+        "CallNo": "6282115865151",
+        "Picture": ""
+      }
+    },
+    {
+      "Id": 1201219225,
+      "Title": "Rumah Murah Banjaran",
+      "Location": "Jl. Banjaran tidak jauh dari alun² Banjaran",
+      "Price": 300000000,
+      "Images": {
+        "Thumbnail": "https://res.cloudinary.com/dzm0tjopo/image/upload/v1720324493/PrestasiProperty/Perum11/idczrttibamtfrh03bti.jpg",
+        "Data": [
+          "https://res.cloudinary.com/dzm0tjopo/image/upload/v1740320159/PrestasiProperty/Perum13/ilyplje8sdrlaumbpe3o.jpg",
+          "https://res.cloudinary.com/dzm0tjopo/image/upload/v1740320159/PrestasiProperty/Perum13/gwtlb1bxtowf08kqghhs.jpg",
+          "https://res.cloudinary.com/dzm0tjopo/image/upload/v1740320159/PrestasiProperty/Perum13/gojkpmhtuwxyihzsuxkf.jpg",
+          "https://res.cloudinary.com/dzm0tjopo/image/upload/v1740320159/PrestasiProperty/Perum13/wukuetuwrs912s7ero5g.jpg",
+          "https://res.cloudinary.com/dzm0tjopo/image/upload/v1740320159/PrestasiProperty/Perum13/yoychx9yoyz3deujpseq.jpg",
+          "https://res.cloudinary.com/dzm0tjopo/image/upload/v1740320159/PrestasiProperty/Perum13/w2otfyqh8cgvuylocthv.jpg",
+          "https://res.cloudinary.com/dzm0tjopo/image/upload/v1740320159/PrestasiProperty/Perum13/fd1tgz0b2lvg9ivgg2ab.jpg",
+          "https://res.cloudinary.com/dzm0tjopo/image/upload/v1740320159/PrestasiProperty/Perum13/mthevktdboqgrxucjtve.jpg",
+          "https://res.cloudinary.com/dzm0tjopo/image/upload/v1740320159/PrestasiProperty/Perum13/aorhzcp8raktp9du681o.jpg",
+          "https://res.cloudinary.com/dzm0tjopo/image/upload/v1740320159/PrestasiProperty/Perum13/hfachtyauecntf8scaun.jpg",
+          "https://res.cloudinary.com/dzm0tjopo/image/upload/v1740320159/PrestasiProperty/Perum13/z23quq9xmocw2frb0q7f.jpg",
+          "https://res.cloudinary.com/dzm0tjopo/image/upload/v1740320159/PrestasiProperty/Perum13/u8rkpyajg6uivyslhk8y.jpg"
+        ]
+      },
+      "Description": "Halo Bapak/Ibu, Saya Ceptrisna. Izinkan Ceptrisna memperkenalkan salah satu properti termurah, terbaik dan banyak bonus bonus menarik  yang siap menjadi rumah impian Bapak/Ibu :\n📍Lokasi : Banjaran tidak jauh dari alun² Banjaran\n💰Harga : mulai 300 Jutaan\n📏Luas Bangunan & Tanah : 36/72\nHanya dengan Dp 1 juta sudah All in biaya biaya :\nBPHTB, AJB, BN, SHM, BIAYA AKAD KREDIT,  CANOPY, TORN, PDAM, LISTRIK 1300\nApakah Bapak/Ibu tertarik untuk mengetahui lebih detail atau ingin menjadwalkan kunjungan ke lokasi? Ceptrisna siap membantu Bapak/Ibu! ☺",
+      "Details": {
+        "Tipe": "36/72",
+        "Transaksi": "Baru",
+        "AreaBuilding": "36",
+        "AreaSurface": "72",
+        "Bathroom": "1",
+        "Bedroom": "2",
+        "Electricity": "1300"
+      },
+      "Agent": {
+        "Name": "Cecep Trisna",
+        "Role": "Agent",
+        "MessageNo": "087722282016",
+        "CallNo": "6282115865151",
+        "Picture": ""
+      }
+    },
+    {
+      "Id": 1201219226,
+      "Title": "Rumah Murah Dekat Padalarang",
+      "Location": "Jl. Padalarang",
+      "Price": 749000000,
+      "Images": {
+        "Thumbnail": "https://res.cloudinary.com/dzm0tjopo/image/upload/v1740321082/PrestasiProperty/Perum14/x8ll1royzvhvjxwhcfpc.jpg",
+        "Data": [
+          "https://res.cloudinary.com/dzm0tjopo/image/upload/v1740321082/PrestasiProperty/Perum14/x8ll1royzvhvjxwhcfpc.jpg",
+          "https://res.cloudinary.com/dzm0tjopo/image/upload/v1740321082/PrestasiProperty/Perum14/ih49y0e0ghflurz1gzlb.jpg",
+          "https://res.cloudinary.com/dzm0tjopo/image/upload/v1740321082/PrestasiProperty/Perum14/nn34lk26u3p8yqyms2t4.jpg",
+          "https://res.cloudinary.com/dzm0tjopo/image/upload/v1740321082/PrestasiProperty/Perum14/cgbk1mocdwavfownoi5d.jpg"
+      
+        ]
+      },
+      "Description": "Hunian Nuansa Villa yang masih berkabut karena berada di ketinggian 867 mdpl,dengan konsep rumah Modern Minimalis di dekat Pusat Pemerintahan Kabupaten Bandung Barat.\n\n*****LOKASI STRATEGIS:*****\n1 menit ke kantor DPRD Bandung Barat\n7 menit ke stasiun kereta cepat Padalarang\n9 menit ke pintu tol Padalarang\n10 menit ke IKEA\n30 menit ke Wisata Lembang\n\n*****Tipe 70/90:*****\nluas bangunan 70 m2\nluas tanah 90 m2\n3 kamar tidur\n2 kamar mandi\n\nHARGA 983 JUTA\nHARGA CASH DISKON JADI 892 juta\nPROMO DP 27 juta all in\nCicilan mulai 5 jutaan\nPromo Free biaya KPR, pajak BPHTB, Free Notaris, AJB, & PBG.\n\n*****Tipe 57/72:*****\nluas bangunan 57 m2\nluas tanah 72 m2\n2 kamar tidur\n1 kamar mandi\n\nHARGA 749 JUTA\nHARGA CASH DISKON JADI 680 juta\nPROMO DP 17 juta all in\nCicilan mulai 4 jutaan\nPromo Free biaya KPR, pajak BPHTB, Free Notaris, AJB, & PBG.\n\nBerminat Hubungi CEPTRISNA https://wa.me/6282115865151/\n\n#artiscantik #developer #agenproperti #marketing",
+      "Details": {
+        "Tipe": "57/72",
+        "Transaksi": "Baru",
+        "AreaBuilding": "57",
+        "AreaSurface": "72",
+        "Bathroom": "1",
+        "Bedroom": "2",
         "Electricity": "1300"
       },
       "Agent": {

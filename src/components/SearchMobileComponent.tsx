@@ -20,8 +20,6 @@ export default function SearchMobileComponent() {
 		}
 	}, [searchparams])
 
-	console.log(searchVal)
-
 	return (
 		<div className="flex w-full max-w-md flex-col gap-3 rounded-md bg-white px-4 py-2 shadow-sm">
 			<div className="relative flex items-center gap-3">

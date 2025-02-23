@@ -18,10 +18,9 @@ import React from 'react'
 import { ImagesSlider } from '../../components/ui/images-slider'
 import { TextGenerateEffect } from '../../components/ui/text-generate-effect'
 import { InfiniteMovingCards } from '../../components/ui/infinite-moving-cards'
-import image from "../../data/image.json"
-import sectionMenu from "../../data/sectionMenu.json"
-import filterPrice from "../../data/filterPrice.json"
-
+import image from '../../data/image.json'
+import sectionMenu from '../../data/sectionMenu.json'
+import filterPrice from '../../data/filterPrice.json'
 
 const WORDS_HEADER = `Prestasi Property`
 
@@ -29,31 +28,28 @@ export default function HomePage() {
 	const [selectedsectionMenus, setSectionMenu] = useState(sectionMenu[0])
 	const [selectedFilterPrice1, setFilterPrice1] = useState(filterPrice[0])
 	const { data: dataRecomendation, isLoading } = useDataPerumahanRecomendation()
-	const { data: dataRecomendationForUser } =
+	const { data: dataRecomendationForUser, refetch: refetchDataRecomendation } =
 		useDataPerumahanRecomendationForUser()
 	const { data: dataRecomandationPopular } =
-		useDataPerumahanRecomendationPopular()
+		useDataPerumahanRecomendationPopular({
+			filter: selectedsectionMenus,
+		})
 	const { data } = useDataGallery()
 	const navigate = useNavigate()
 	const [isInputSearchSelected, setIsInputSearchSelected] = useState(false)
 	const { data: dataRecomendationByCity } =
 		useRecomendationByCity(selectedFilterPrice1)
 
-	console.log(dataRecomendation)
-
 	function handleSearchSubmit(event: React.KeyboardEvent<HTMLInputElement>) {
 		if (event.key === 'Enter') {
-			console.log(event.currentTarget.value)
 			navigate('/Property?search=' + event.currentTarget.value)
 		}
 	}
 
-	console.log(dataRecomendationByCity)
-
 	return (
 		<section className="flex h-full w-full">
 			<section
-				className="custom-scrollbar flex h-[820px] w-full flex-col gap-[60px] overflow-y-auto overflow-x-hidden px-4 md:px-5"
+				className="custom-scrollbar flex h-[820px] w-[70%] flex-1 flex-col gap-[60px] overflow-y-auto overflow-x-hidden px-4 md:px-5"
 				id="scroll"
 			>
 				<section id="section-top" className="flex flex-col gap-6">
@@ -62,7 +58,7 @@ export default function HomePage() {
 							className={`${
 								isInputSearchSelected ? 'sm:blur-[1px]' : ''
 							} "object-cover rounded-md sm:h-full sm:w-full`}
-							images={ image}
+							images={image}
 						>
 							<motion.div
 								initial={{
@@ -117,7 +113,7 @@ export default function HomePage() {
 							</div>
 						</div>
 						<div className="absolute left-1/2 top-1/2 flex w-full -translate-x-1/2 -translate-y-1/2 transform justify-center px-5 sm:hidden">
-							<TextGenerateEffect words={WORDS_HEADER } />
+							<TextGenerateEffect words={WORDS_HEADER} />
 						</div>
 					</section>
 					<div className="flex border-spacing-1 items-center gap-3 rounded-md border bg-slate-200 p-2 sm:hidden">
@@ -147,27 +143,21 @@ export default function HomePage() {
 					<div className="flex flex-col gap-3">
 						<div className="text-md font-semibold">Explore Your Dream Home</div>
 						<div className="flex gap-6 opacity-[0.6]">
-							{sectionMenu.map((item: string) =>
-								selectedsectionMenus == item ? (
+							{sectionMenu.map((item: string) => {
+								const isSelected = selectedsectionMenus === item
+
+								return (
 									<SectionMenuComponent
 										Text={item}
-										boolHovered={true}
+										boolHovered={isSelected}
 										setHoverText={(val) => setSectionMenu(val)}
-										defaultText={selectedsectionMenus}
-									/>
-								) : (
-									<SectionMenuComponent
-										Text={item}
-										boolHovered={false}
-										setHoverText={(val) => setSectionMenu(val)}
-										defaultText={selectedsectionMenus}
 									/>
 								)
-							)}
+							})}
 						</div>
 					</div>
 					<div className="custom-scrollbar flex w-full gap-3 overflow-x-auto pb-8">
-						{dataRecomandationPopular.map((item, idx) => {
+						{dataRecomandationPopular.map((item: any, idx: number) => {
 							if (idx < 4) {
 								return <CardComponent data={item} />
 							}
@@ -178,29 +168,22 @@ export default function HomePage() {
 					<div className="flex flex-col gap-3">
 						<div className="text-md font-semibold">Padalarang</div>
 						<div className="flex gap-6 opacity-[0.6]">
-							{filterPrice?.map((item: string) =>
-								selectedFilterPrice1 == item ? (
+							{filterPrice?.map((item: string) => {
+								const isSelected = selectedFilterPrice1 === item
+
+								return (
 									<SectionMenuComponent
 										Text={item}
-										boolHovered={true}
+										boolHovered={isSelected}
 										setHoverText={(val) => setFilterPrice1(val)}
-										defaultText={selectedFilterPrice1}
-									/>
-								) : (
-									<SectionMenuComponent
-										Text={item}
-										boolHovered={false}
-										setHoverText={(val) => setFilterPrice1(val)}
-										defaultText={selectedFilterPrice1}
 									/>
 								)
-							)}
+							})}
 						</div>
 					</div>
 					<div className="flex flex-col gap-4">
 						<div className="custom-scrollbar flex w-full flex-row gap-3 overflow-x-auto pb-8 md:w-full">
 							{dataRecomendationByCity.map((item: dataPerumahanType) => {
-								console.log(item)
 								return (
 									<CardLocationComponent
 										ID={item.Id}
@@ -279,11 +262,11 @@ export default function HomePage() {
 						</div>
 					</div>
 					<div className="flex w-full justify-center">
-						<div className="flex w-full h-full flex-col items-center justify-center rounded-md bg-white antialiased">
+						<div className="flex h-full w-full flex-col items-center justify-center rounded-md bg-transparent antialiased">
 							<InfiniteMovingCards direction="right" speed="slow">
 								{data?.additionalData.map((item) => {
 									return (
-										<div className='h-[220px] w-[420px]'>
+										<div className="h-[220px] w-[420px]" key={item}>
 											<img
 												src={item}
 												className="h-full w-full cursor-pointer rounded-md object-cover hover:scale-105"
@@ -303,7 +286,10 @@ export default function HomePage() {
 							<div className="text-sm">Best offer for your future</div>
 						</div>
 						<div className="flex gap-3">
-							<div className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-primary text-neutral hover:scale-105">
+							<div
+								className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-primary text-neutral hover:scale-105"
+								onClick={refetchDataRecomendation}
+							>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
@@ -319,7 +305,10 @@ export default function HomePage() {
 									/>
 								</svg>
 							</div>
-							<div className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-primary text-neutral hover:scale-105">
+							<div
+								className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-primary text-neutral hover:scale-105"
+								onClick={refetchDataRecomendation}
+							>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"
@@ -351,19 +340,21 @@ export default function HomePage() {
 					</div>
 				</section>
 			</section>
-
-			<motion.section
-				className="hidden h-full w-full flex-col gap-6 border-l-2 border-[#13353d04] p-5 2xl:flex 2xl:max-w-md"
-				initial={{ opacity: 0, x: '100px' }}
-				animate={{ opacity: 1, x: '0px' }}
-				transition={{ delay: 0.8 }}
-			>
+			<motion.section className="hidden h-full w-[30%] flex-none flex-col gap-6 border-l-2 border-[#13353d04] p-5 2xl:flex">
 				{!isLoading && dataRecomendation ? (
 					<>
-						<CardPopularComponent data={dataRecomendation[0]!} />
-						<div className="flex flex-col gap-3">
-							<MiniCardPopularComponent data={dataRecomendation[1]!} />
-							<MiniCardPopularComponent data={dataRecomendation[2]!} />
+						<div className="w-full">
+							<CardPopularComponent data={dataRecomendation[0]!} />
+						</div>
+						<div className="flex w-full flex-col gap-3 mt-3">
+							<div className="w-full">
+								<CardLocationComponent
+									ID={dataRecomendation[1].Id}
+									Title={dataRecomendation[1].Title}
+									Description={dataRecomendation[1].Description}
+									Images={dataRecomendation[1].Images.Thumbnail}
+								/>
+							</div>
 						</div>
 					</>
 				) : null}

@@ -1,32 +1,42 @@
-import dataPerumahan  from '../data/dataPerumahanDummy.json'
+import dataPerumahan from '../data/dataPerumahanDummy.json'
 import { useQuery } from 'react-query'
 import { toGenerateRandomNumber } from '../utils/toGenerateRandomNumber'
-import { useMemo } from 'react'
+import { useMemo, useCallback, useState } from 'react'
 
 export function useDataPerumahanRecomendationForUser() {
-	const { data, isLoading, isError } = useQuery(
-		'dataRecomendation',
-		() => dataPerumahan,
-		{
-			cacheTime: 60000, // Contoh: cache berlaku selama 60 detik
-		}
-	)
+  const { data, isLoading, isError, refetch } = useQuery(
+    'dataRecomendation',
+    () => dataPerumahan,
+    {
+      cacheTime: 60000,
+      staleTime: 0, // Memastikan data dianggap stale segera
+    }
+  )
 
-	const randomNumber = useMemo(
-		() => toGenerateRandomNumber(3, 0, dataPerumahan.additionalData.length - 1),
-		[]
-	)
+  // Menggunakan state untuk menyimpan timestamp terakhir refetch
+  const [refreshKey, setRefreshKey] = useState(0)
 
-	const dataFilter = useMemo(() => {
-		if (!data) return []
-		return randomNumber.map((item) => data.additionalData[item])
-	}, [data, randomNumber])
+  // Custom refetch yang memperbarui refreshKey
+  const handleRefetch = useCallback(async () => {
+    await refetch()
+    setRefreshKey(prev => prev + 1)
+  }, [refetch])
 
-	console.log(dataFilter)
+  // Menggunakan refreshKey sebagai dependency
+  const randomNumber = useMemo(
+    () => toGenerateRandomNumber(3, 0, dataPerumahan.additionalData.length - 1),
+    [refreshKey] // Akan generate ulang ketika refreshKey berubah
+  )
 
-	return {
-		data: dataFilter,
-		isLoading: isLoading,
-		isError: isError,
-	}
+  const dataFilter = useMemo(() => {
+    if (!data) return []
+    return randomNumber.map((item) => data.additionalData[item])
+  }, [data, randomNumber]) // Tidak perlu memasukkan refetch sebagai dependency
+
+  return {
+    data: dataFilter,
+    isLoading,
+    isError,
+    refetch: handleRefetch // Menggunakan custom refetch
+  }
 }

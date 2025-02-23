@@ -6,7 +6,7 @@ export default function useDataSearch(search: string | null) {
 
 	useEffect(() => {
 		if (search) {
-			console.log(search)
+
 			const filteredData = dataPerumahan.additionalData.filter(
 				(item) =>
 					item.Title.toLowerCase().includes(search!.toLowerCase()) ||
@@ -15,14 +15,12 @@ export default function useDataSearch(search: string | null) {
 			)
 			setData(filteredData)
 		} else {
-			console.log(search)
+
 			setData(null)
 		}
 
 		// Update data directly within useEffect
 	}, [search]) // Dependency array: update only when search changes
-
-	console.log(data) // Log data after potential update
 
 	return {
 		dataSearch: data,
