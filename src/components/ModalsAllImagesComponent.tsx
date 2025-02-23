@@ -20,8 +20,8 @@ export default function ModalsAllImagesComponent({
 		<div className="fixed z-[1000] flex h-screen w-full cursor-pointer items-center justify-center bg-[#000000c9]">
 			<div
 				className={cn(
-					isMobile ? 'absolute bottom-36' : '',
-					'flex w-full justify-between px-[100px] text-white'
+					isMobile ? 'bottom-36' : '',
+					'absolute  flex w-full justify-between px-[100px] text-white'
 				)}
 			>
 				{idxModalAllImage != 0 ? (
