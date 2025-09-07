@@ -9,7 +9,7 @@ import {
 } from '../../store/modalImagesStore'
 import { toRupiah } from '../../utils/toRupiah'
 import { useState } from 'react'
-import  dataSegment  from '../../data/dataSegmentDetail.json'
+import dataSegment from '../../data/dataSegmentDetail.json'
 
 export default function DetailPage({
 	ClickedProperty,
@@ -46,7 +46,7 @@ export default function DetailPage({
 	return (
 		<section
 			className={`flex w-full flex-col gap-10 p-5 ${
-				ClickedProperty ? 'h-[820px] overflow-y-scroll' : ""
+				ClickedProperty ? 'h-[820px] overflow-y-scroll' : ''
 			}`}
 		>
 			<motion.section
@@ -316,7 +316,7 @@ export default function DetailPage({
 								</div>
 							</div>
 							<div className="text-justify text-[14px] opacity-[0.6]">
-								{DataDetail?.Description}
+								{DataDetail?.Agent?.description}
 							</div>
 							<div className="mt-3 flex flex-col gap-3 md:flex-row">
 								<div className="w-full">
