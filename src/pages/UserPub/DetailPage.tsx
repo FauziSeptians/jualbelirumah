@@ -316,7 +316,7 @@ export default function DetailPage({
 								</div>
 							</div>
 							<div className="text-justify text-[14px] opacity-[0.6]">
-								{DataDetail?.Agent?.description}
+								{DataDetail?.Agent?.Description}
 							</div>
 							<div className="mt-3 flex flex-col gap-3 md:flex-row">
 								<div className="w-full">
